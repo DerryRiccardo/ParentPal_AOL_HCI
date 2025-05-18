@@ -7,7 +7,7 @@
 	--bg-light: #ffffff;
 	--bg-accent: #fff6f6;
 	--border-color: #eeeeee;
-	--shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	--shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 	--border-radius: 10px;
 	--transition: all 0.3s ease;
 	--bg-gradient: linear-gradient(
@@ -29,6 +29,7 @@ body {
 	line-height: 1.6;
 	background-color: var(--bg-light);
 	overflow-x: hidden;
+	text-decoration: none;
 }
 
 .container {
@@ -95,7 +96,7 @@ a {
 }
 
 a:hover {
-	color: var(--primary-color);
+	color: var(--primary-light);
 }
 
 button {
@@ -188,6 +189,114 @@ header {
 
 .mobile-login {
 	display: none;
+}
+
+/* Profile Icon */
+.profile-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.profile-icon:hover {
+    background-color: var(--bg-accent);
+}
+
+.profile-icon .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-light);
+}
+
+.profile-icon .profile-image i {
+    font-size: 24px;
+    color: var(--primary-dark);
+}
+
+.profile-icon .fa-chevron-down {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* Profile Dropdown Styles */
+.profile-icon {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+    display: none;
+    z-index: 1000;
+}
+
+.profile-icon.active .profile-dropdown {
+    display: block;
+}
+
+.dropdown-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 12px;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.user-email {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-accent);
+    color: var(--primary-color);
+}
+
+.dropdown-item i {
+    font-size: 1rem;
+    width: 20px;
 }
 
 /* Footer */

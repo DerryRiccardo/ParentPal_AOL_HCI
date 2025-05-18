@@ -21,9 +21,9 @@
 			<div class="container">
 				<nav class="navbar">
 					<div class="logo">
-						<a href="index.html"
-							><img src="./assets/logo.svg" alt="ParentPal Logo"
-						/></a>
+						<a href="index.html">
+							<img src="./assets/logo.svg" alt="ParentPal Logo"/>
+						</a>
 					</div>
 
 					<ul class="nav-links">
@@ -32,11 +32,11 @@
 						<li><a href="./html/community.html">Community</a></li>
 						<li><a href="./html/chatbot.html">Chatbot</a></li>
 						<li class="mobile-login">
-							<button class="login-btn">Login</button>
+							<a href="./html/signup.html" class="login-btn">Login</a>
 						</li>
 					</ul>
 
-					<button class="login-btn desktop-login">Login</button>
+					<a href="./html/signup.html" class="login-btn desktop-login">Login</a>
 
 					<div class="mobile-menu">
 						<i class="fas fa-bars"></i>
@@ -160,19 +160,21 @@
 					<a href="#" class="view-all">View All</a>
 				</div>
 				<div class="video-grid">
-					<div class="video-card">
-						<img src="./assets/video1.svg" alt="Parenting Strategy" />
-						<div class="video-content">
-							<p class="article-tags body-text">Parenting</p>
-							<h4>The Most Important Parenting Strategy</h4>
-							<div class="article-meta">
-								<span>By Derry Riccardo</span>
-								<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-								<span><i class="fa-regular fa-comment"></i> 2</span>
+					<a href="./html/vid-content.html">
+						<div class="video-card">
+							<img src="./assets/video1.svg" alt="Parenting Strategy" />
+							<div class="video-content">
+								<p class="article-tags body-text">Parenting</p>
+								<h4>The Most Important Parenting Strategy</h4>
+								<div class="article-meta">
+									<span>By Derry Riccardo</span>
+									<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+									<span><i class="fa-regular fa-comment"></i> 2</span>
+								</div>
 							</div>
 						</div>
-					</div>
-
+					</a>
+					
 					<div class="video-card">
 						<img src="./assets/video2.svg" alt="Staying Calm" />
 						<div class="video-content">
@@ -675,5 +677,6 @@
 
 		<script src="./layout/layout.js"></script>
 		<script src="./js/index.js"></script>
+		<script src="./js/loggedinstate.js"></script>
 	</body>
 </html>

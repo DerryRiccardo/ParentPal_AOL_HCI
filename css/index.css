@@ -33,7 +33,6 @@
 
 .cta-btn:hover,
 .read-more-btn:hover {
-	background-color: var(--primary-color);
 	transform: translateY(-3px);
 	box-shadow: 0 5px 15px rgba(242, 125, 125, 0.3);
 }
@@ -69,7 +68,8 @@
 
 .article-card:hover {
 	transform: translateY(-5px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
 }
 
 .article-image {
@@ -151,8 +151,7 @@
 }
 
 .video-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .video-card img {

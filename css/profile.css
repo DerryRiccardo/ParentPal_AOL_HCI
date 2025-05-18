@@ -1,142 +1,3 @@
-/* Global Styles */
-:root {
-    --primary-color: #FFC8C8;
-    --primary-light: #FFE6E6;
-    --primary-dark: #FFA5A5;
-    --text-color: #333333;
-    --text-light: #666666;
-    --bg-light: #FFFFFF;
-    --bg-accent: #FFF6F6;
-    --border-color: #EEEEEE;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --border-radius: 10px;
-    --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    line-height: 1.6;
-    background-color: var(--bg-light);
-    overflow-x: hidden;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: 15px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-a:hover {
-    color: var(--primary-dark);
-}
-
-button {
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    outline: none;
-    font-weight: 500;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-section {
-    padding: 60px 0;
-}
-/* Header & Navigation */
-header {
-    background-color: var(--bg-light);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.logo span {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-dark);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: var(--primary-dark);
-}
-
-.profile-icon {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.profile-icon img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-
-.mobile-menu {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
 /* Main Content */
 main {
     padding: 40px 0;
@@ -172,12 +33,12 @@ section {
 }
 
 .action-link:hover {
-    color: var(--primary-dark);
+    color: var(--primary-light);
 }
 
 .profile-info {
     display: flex;
-    background-color: var(--bg-light);
+    background-color: var(--bg-accent);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     padding: 20px;
@@ -218,7 +79,7 @@ section {
 
 .edit-profile-btn {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: white;
     padding: 8px 20px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -227,10 +88,10 @@ section {
 }
 
 .edit-profile-btn:hover {
-    background-color: var(--primary-dark);
-    color: white;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(242, 125, 125, 0.3);
 }
+
 
 /* Children Section */
 .children-section h2 {
@@ -244,15 +105,11 @@ section {
 }
 
 .child-card {
-    background-color: var(--primary-light);
+    background-color: var(--bg-accent);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     padding: 20px;
     transition: var(--transition);
-}
-
-.child-card:hover {
-    box-shadow: var(--shadow);
-    transform: translateY(-5px);
 }
 
 .child-card h3 {
@@ -269,7 +126,7 @@ section {
 
 .edit-info-btn {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: white;
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -278,8 +135,8 @@ section {
 }
 
 .edit-info-btn:hover {
-    background-color: var(--primary-dark);
-    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(242, 125, 125, 0.3);
 }
 
 /* Activity Summary Section */
@@ -301,8 +158,7 @@ section {
 }
 
 .view-all-btn:hover {
-    background-color: var(--primary-dark);
-    color: white;
+   color: var(--primary-light);
 }
 
 .activity-stats {
@@ -312,7 +168,7 @@ section {
 }
 
 .activity-item {
-    background-color: var(--bg-light);
+    background-color: var(--bg-accent);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     padding: 15px;
@@ -351,7 +207,7 @@ section {
 }
 
 .content-card {
-    background-color: var(--primary-light);
+    background-color: var(--bg-accent);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);

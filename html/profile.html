@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParentPal - Profile</title>
-    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../layout/layout.css">
+   
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -12,21 +15,18 @@
     <!-- Header/Navigation -->
     <header>
         <div class="container">
-            <nav>
+            <nav class="navbar">
                 <div class="logo">
-                    <img src="https://via.placeholder.com/40" alt="ParentPal Logo">
-                    <span>ParentPal</span>
+                    <a href="../index.html">
+                        <img src="../assets/logo.svg" alt="ParentPal Logo">
+                    </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="home.html">About Us</a></li>
+                    <li><a href="../index.html">About Us</a></li>
                     <li><a href="content.html">Content</a></li>
                     <li><a href="community.html">Community</a></li>
                     <li><a href="chatbot.html">Chatbot</a></li>
                 </ul>
-                <div class="profile-icon">
-                    <img src="https://via.placeholder.com/30" alt="Profile">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -140,7 +140,7 @@
                     <!-- First Saved Content -->
                     <div class="content-card">
                         <div class="content-image">
-                            <img src="https://via.placeholder.com/150" alt="From Tantrums to Talking">
+                            <img src="../assets/article1.svg" alt="From Tantrums to Talking">
                         </div>
                         <div class="content-tag parenting">Parenting</div>
                         <div class="content-info">
@@ -153,23 +153,25 @@
                     </div>
 
                     <!-- Second Saved Content -->
-                    <div class="content-card">
-                        <div class="content-image">
-                            <img src="https://via.placeholder.com/150" alt="The Most Important Parenting Strategy">
-                            <div class="play-icon">
-                                <i class="fas fa-play"></i>
+                    <a href="vid-content.html"> 
+                        <div class="content-card">
+                            <div class="content-image">
+                                <img src="../assets/video1.svg" alt="The Most Important Parenting Strategy">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="content-tag parenting">Parenting</div>
+                            <div class="content-info">
+                                <h3>The Most Important Parenting Strategy</h3>
+                                <p class="content-author">By Derry Richards</p>
+                                <div class="content-meta">
+                                    <span class="date">April 27, 2025</span>
+                                    <span class="likes"><i class="far fa-heart"></i> 5</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="content-tag parenting">Parenting</div>
-                        <div class="content-info">
-                            <h3>The Most Important Parenting Strategy</h3>
-                            <p class="content-author">By Derry Richards</p>
-                            <div class="content-meta">
-                                <span class="date">April 27, 2025</span>
-                                <span class="likes"><i class="far fa-heart"></i> 5</span>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </section>
         </div>
@@ -182,7 +184,7 @@
                 <!-- Logo and Description -->
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="https://via.placeholder.com/40" alt="ParentPal Logo">
+                        <img src="../assets/logo.svg" alt="ParentPal Logo">
                         <span>ParentPal</span>
                     </div>
                     <p>A supportive parenting app that offers expert tips with the aim to nurture, inspire, and provide support for parents anywhere.</p>
@@ -232,6 +234,7 @@
         </div>
     </footer>
 
-    <script src="profile.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../layout/layout.js"></script>
 </body>
 </html>

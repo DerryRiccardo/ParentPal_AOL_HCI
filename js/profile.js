@@ -1,68 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
-   // Mobile menu toggle
-    const mobileMenuButton = document.querySelector('.mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    // Check if user is logged in
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userData = JSON.parse(localStorage.getItem('userData'));
     
-    // Toggle mobile menu
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', function() {
-            navLinks.classList.toggle('show');
-            
-            // Toggle icon between bars and X
-            const icon = mobileMenuButton.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+    if (!isLoggedIn || !userData) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    // Update profile information
+    const nameElement = document.querySelector('.profile-details h2');
+    const emailElement = document.querySelector('.profile-details p:nth-child(2)');
+    const phoneElement = document.querySelector('.profile-details p:nth-child(3)');
+    const joinDateElement = document.querySelector('.profile-details p:nth-child(5)');
+
+    if (nameElement) {
+        nameElement.textContent = `${userData.lastName}, ${userData.firstName}`;
+    }
+    if (emailElement) {
+        emailElement.innerHTML = `<i class="fas fa-envelope"></i> ${userData.email}`;
+    }
+    if (phoneElement) {
+        phoneElement.innerHTML = `<i class="fas fa-phone"></i> ${userData.phone}`;
+    }
+    if (joinDateElement) {
+        joinDateElement.innerHTML = `<i class="fas fa-calendar"></i> Joined: ${userData.joinDate}`;
+    }
+
+    // Handle logout
+    const logoutButton = document.querySelector('.profile-actions a:last-child');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+                // Only remove the login status, keep user data
+            localStorage.setItem('isLoggedIn', 'false');
+            alert('Succesfully logged out')
+            window.location.href="../index.html";
         });
     }
 
-    const style = document.createElement('style');
-    style.textContent = `
-        .nav-links.show {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background-color: white;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            z-index: 100;
-        }
-        
-        .nav-links.show li {
-            margin: 10px 0;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Profile dropdown toggle (can be expanded in future)
-    const profileIcon = document.querySelector('.profile-icon');
-    
-    if (profileIcon) {
-        profileIcon.addEventListener('click', function() {
-            // Functionality to be added when dropdown is implemented
-            console.log('Profile icon clicked');
-        });
-    }
-
-    // Edit profile button
+    // Event listeners for buttons
     const editProfileBtn = document.querySelector('.edit-profile-btn');
-    
-    if (editProfileBtn) {
-        editProfileBtn.addEventListener('click', function() {
-            alert('Edit profile functionality to be implemented');
-        });
-    }
-
-    // Edit child info buttons
+    const viewActivityBtn = document.querySelector('.view-all-btn');
     const editInfoBtns = document.querySelectorAll('.edit-info-btn');
     
+    if (editProfileBtn) {
+        editProfileBtn.addEventListener('click', () => alert('Edit profile functionality to be implemented'));
+    }
+
+    if (viewActivityBtn) {
+        viewActivityBtn.addEventListener('click', () => alert('View activity details functionality to be implemented'));
+    }
+
     if (editInfoBtns.length > 0) {
         editInfoBtns.forEach(button => {
             button.addEventListener('click', function() {
@@ -71,63 +60,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // View activity details button
-    const viewActivityBtn = document.querySelector('.view-all-btn');
-    
-    if (viewActivityBtn) {
-        viewActivityBtn.addEventListener('click', function() {
-            alert('View activity details functionality to be implemented');
-        });
-    }
-
-    // Saved content cards
-    const contentCards = document.querySelectorAll('.content-card');
-    
-    if (contentCards.length > 0) {
-        contentCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const contentTitle = this.querySelector('h3').textContent;
-                alert(`Opening content: ${contentTitle}`);
-            });
-        });
-    }
-
-    // Add hover effect for cards
-    const allCards = document.querySelectorAll('.child-card, .content-card, .activity-item');
-    
-    allCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '';
-        });
-    });
-
-    // Add hover effect for buttons
-    const allButtons = document.querySelectorAll('button');
-    
-    allButtons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            if (this.classList.contains('edit-profile-btn') || 
-                this.classList.contains('edit-info-btn')) {
-                this.style.backgroundColor = 'var(--primary-dark)';
-                this.style.color = 'white';
-                this.style.transform = 'translateY(-2px)';
-            }
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            if (this.classList.contains('edit-profile-btn') || 
-                this.classList.contains('edit-info-btn')) {
-                this.style.backgroundColor = 'var(--primary-color)';
-                this.style.color = 'var(--text-color)';
-                this.style.transform = 'translateY(0)';
-            }
-        });
-    });
 });
