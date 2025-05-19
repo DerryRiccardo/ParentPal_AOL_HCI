@@ -79,3 +79,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// document.addEventListener("DOMContentLoaded", function () {
+// 	if (!localStorage.getItem("userData")) {
+// 		localStorage.setItem("isLoggedIn", "false");
+// 	}
+
+// 	const userData = JSON.parse(localStorage.getItem("userData"));
+// 	const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+// 	const mobileLoginLi = document.querySelector(".mobile-login");
+
+// 	if (userData && isLoggedIn && mobileLoginLi) {
+// 		// Ubah konten tombol login jadi profil
+// 		const isRootDir = window.location.pathname.indexOf("/html/") === -1;
+// 		const profilePath = isRootDir ? "./html/profile.html" : "./profile.html";
+
+// 		mobileLoginLi.innerHTML = `
+// 			<div class="profile-icon">
+// 				<div class="profile-image">
+// 					<i class="fas fa-user-circle"></i>
+// 				</div>
+// 				<i class="fas fa-chevron-down"></i>
+// 				<div class="profile-dropdown">
+// 					<div class="dropdown-header">
+// 						<p class="user-name">${userData.firstName} ${userData.lastName}</p>
+// 						<p class="user-email">${userData.email}</p>
+// 					</div>
+// 					<div class="dropdown-content">
+// 						<a href="${profilePath}" class="dropdown-item">
+// 							<i class="fas fa-user"></i>
+// 							View Profile
+// 						</a>
+// 						<button class="dropdown-item logout-btn">
+// 							<i class="fas fa-sign-out-alt"></i>
+// 							Logout
+// 						</button>
+// 					</div>
+// 				</div>
+// 			</div>
+// 		`;
+
+// 		const profileIcon = mobileLoginLi.querySelector(".profile-icon");
+// 		const logoutBtn = mobileLoginLi.querySelector(".logout-btn");
+
+// 		profileIcon.addEventListener("click", (e) => {
+// 			e.stopPropagation();
+// 			profileIcon.classList.toggle("active");
+// 		});
+
+// 		logoutBtn.addEventListener("click", (e) => {
+// 			e.preventDefault();
+// 			localStorage.setItem("isLoggedIn", "false");
+// 			alert("Successfully logged out");
+// 			window.location.reload();
+// 		});
+
+// 		document.addEventListener("click", () => {
+// 			profileIcon.classList.remove("active");
+// 		});
+// 	}
+// });

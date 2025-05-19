@@ -7,7 +7,7 @@
 	--bg-light: #ffffff;
 	--bg-accent: #fff6f6;
 	--border-color: #eeeeee;
-	--shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+	--shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 	--border-radius: 10px;
 	--transition: all 0.3s ease;
 	--bg-gradient: linear-gradient(
@@ -193,111 +193,178 @@ header {
 
 /* Profile Icon */
 .profile-icon {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: var(--border-radius);
+	transition: var(--transition);
 }
 
 .profile-icon:hover {
-    background-color: var(--bg-accent);
+	background-color: var(--bg-accent);
 }
 
 .profile-icon .profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary-light);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-light);
 }
 
 .profile-icon .profile-image i {
-    font-size: 24px;
-    color: var(--primary-dark);
+	font-size: 24px;
+	color: var(--primary-dark);
 }
 
 .profile-icon .fa-chevron-down {
-    font-size: 12px;
-    color: var(--text-light);
+	font-size: 12px;
+	color: var(--text-light);
 }
 
 /* Profile Dropdown Styles */
 .profile-icon {
-    position: relative;
+	position: relative;
 }
 
 .profile-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 250px;
-    background: var(--bg-light);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    padding: 16px;
-    display: none;
-    z-index: 1000;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: 250px;
+	background: var(--bg-light);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	padding: 16px;
+	display: none;
+	z-index: 1000;
 }
 
 .profile-icon.active .profile-dropdown {
-    display: block;
+	display: block;
 }
 
 .dropdown-header {
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--border-color);
+	margin-bottom: 12px;
 }
 
 .user-name {
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 4px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-bottom: 4px;
 }
 
 .user-email {
-    font-size: 0.9rem;
-    color: var(--text-light);
+	font-size: 0.9rem;
+	color: var(--text-light);
 }
 
 .dropdown-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 .dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
-    border-radius: var(--border-radius);
-    color: var(--text-color);
-    text-decoration: none;
-    transition: var(--transition);
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-family: inherit;
-    font-size: inherit;
-    width: 100%;
-    text-align: left;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+	border-radius: var(--border-radius);
+	color: var(--text-color);
+	text-decoration: none;
+	transition: var(--transition);
+	cursor: pointer;
+	border: none;
+	background: none;
+	font-family: inherit;
+	font-size: inherit;
+	width: 100%;
+	text-align: left;
 }
 
 .dropdown-item:hover {
-    background-color: var(--bg-accent);
-    color: var(--primary-color);
+	background-color: var(--bg-accent);
+	color: var(--primary-color);
 }
 
 .dropdown-item i {
-    font-size: 1rem;
-    width: 20px;
+	font-size: 1rem;
+	width: 20px;
 }
+
+/* .profile-icon {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	color: var(--text-color, #333);
+}
+
+.profile-image i {
+	font-size: 1.5rem;
+	color: var(--primary-color, #8752c2);
+}
+
+.profile-dropdown {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: white;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	width: 200px;
+	padding: 10px;
+	z-index: 10;
+	flex-direction: column;
+}
+
+.profile-icon.active .profile-dropdown {
+	display: flex;
+}
+
+.dropdown-header {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.dropdown-header p {
+	margin: 0;
+	font-size: 0.85rem;
+}
+
+.dropdown-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+	text-decoration: none;
+	color: #333;
+	transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+	background-color: #f0f0f0;
+}
+
+.logout-btn {
+	background: none;
+	border: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+} */
 
 /* Footer */
 footer {
@@ -448,16 +515,7 @@ footer {
 		margin: 10px 0;
 	}
 
-	.desktop-login {
-		display: none;
-	}
-
-	.mobile-login {
-		display: block;
-	}
-
 	.mobile-menu {
 		display: block;
 	}
 }
-
