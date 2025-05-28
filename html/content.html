@@ -6,6 +6,7 @@
 		<title>ParentPal - Content Library</title>
 		<link rel="stylesheet" href="../css/content.css" />
 		<link rel="stylesheet" href="../layout/layout.css" />
+		<link rel="stylesheet" href="../css/modal.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -19,25 +20,55 @@
 			<div class="container">
 				<nav class="navbar">
 					<div class="logo">
-						<a href="../index.html"
-							><img src="../assets/logo.svg" alt="ParentPal Logo"
-						/></a>
+						<a href="../index.html">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</a>
 					</div>
 
 					<ul class="nav-links">
-						<li><a href="../index.html#about">About Us</a></li>
+						<li><a href="../index.html">Home</a></li>
 						<li><a href="content.html">Content</a></li>
 						<li><a href="community.html">Community</a></li>
 						<li><a href="chatbot.html">Chatbot</a></li>
-
-						<!-- <li class="mobile-login">
-							<a href="./html/login.html" class="login-btn">Login</a>
-						</li> -->
 					</ul>
 
-					<li class="desktop-login">
-						<a href="./html/login.html" class="login-btn">Login</a>
-					</li>
+					<!-- Login button for non-authenticated users -->
+					<div class="desktop-login" id="desktop-login">
+						<a href="login.html" class="login-btn">Login</a>
+					</div>
+
+					<!-- Profile dropdown for authenticated users -->
+					<div class="profile-icon" id="profile-icon" style="display: none">
+						<div class="profile-image">
+							<i class="fas fa-user"></i>
+						</div>
+						<i class="fas fa-chevron-down"></i>
+
+						<div class="profile-dropdown">
+							<div class="dropdown-header">
+								<div class="user-name" id="user-name">John Doe</div>
+								<div class="user-email" id="user-email">john@example.com</div>
+							</div>
+							<div class="dropdown-content">
+								<a href="#" class="dropdown-item" onclick="goToDashboard()">
+									<i class="fas fa-th-large"></i>
+									Dashboard
+								</a>
+								<a href="profile.html" class="dropdown-item">
+									<i class="fas fa-user"></i>
+									View Profile
+								</a>
+								<a href="#" class="dropdown-item">
+									<i class="fas fa-cog"></i>
+									Settings
+								</a>
+								<button class="dropdown-item logout-btn" onclick="logout()">
+									<i class="fas fa-sign-out-alt"></i>
+									Logout
+								</button>
+							</div>
+						</div>
+					</div>
 
 					<div class="mobile-menu">
 						<i class="fas fa-bars"></i>
@@ -77,8 +108,8 @@
 			<div class="container">
 				<h3>Featured Articles</h3>
 				<!-- <div class="featured-articles"> -->
-					<!-- Article 1 -->
-					<!-- <div class="featured-article">
+				<!-- Article 1 -->
+				<!-- <div class="featured-article">
 						<div class="article-image">
 							<img
 								src="/assets/article1.svg"
@@ -101,8 +132,8 @@
 						</div>
 					</div> -->
 
-					<!-- Article 2 -->
-					<!-- <div class="featured-article">
+				<!-- Article 2 -->
+				<!-- <div class="featured-article">
 						<div class="article-image">
 							<img
 								src="/assets/article2.svg"
@@ -126,8 +157,8 @@
 						</div>
 					</div> -->
 
-					<!-- Article 3 -->
-					<!-- <div class="featured-article">
+				<!-- Article 3 -->
+				<!-- <div class="featured-article">
 						<div class="article-image">
 							<img
 								src="/assets/article3.svg"
@@ -227,7 +258,7 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 			</div>
 		</section>
 
@@ -236,21 +267,22 @@
 			<div class="container">
 				<h3>Featured Videos</h3>
 				<div class="video-grid">
-					
 					<a href="vid-content.html">
-						<div class="video-card" >
+						<div class="video-card">
 							<img src="../assets/video1.svg" alt="Parenting Strategy" />
 							<div class="video-content">
 								<p class="article-tags body-text">Parenting</p>
 								<h4>The Most Important Parenting Strategy</h4>
 								<div class="article-meta">
 									<span>By Derry Riccardo</span>
-									<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+									<span
+										><i class="fa-regular fa-clock"></i> April 27, 2025</span
+									>
 									<span><i class="fa-regular fa-comment"></i> 2</span>
 								</div>
 							</div>
 						</div>
-					</a>	
+					</a>
 
 					<div class="video-card">
 						<img src="../assets/video2.svg" alt="Staying Calm" />
@@ -292,16 +324,14 @@
 				<div class="content-grid">
 					<div class="content-card">
 						<div class="content-image">
-							<img
-								src="../assets/more1.svg"
-								alt="Kids handling big emotions" />
+							<img src="../assets/more1.svg" alt="Kids handling big emotions" />
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>Helping Kids Handle Big Emotions</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
@@ -313,14 +343,14 @@
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>Screen Time Without the Stress</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
-                    <div class="content-card">
+					<div class="content-card">
 						<div class="content-image">
 							<img
 								src="../assets/more3.svg"
@@ -328,14 +358,14 @@
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>How to Be a Calm Parent (Even on Hard Days)</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
-                    <div class="content-card">
+					<div class="content-card">
 						<div class="content-image">
 							<img
 								src="../assets/more4.svg"
@@ -343,29 +373,27 @@
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>The Power of Play in Parenting</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
-                    <div class="content-card">
+					<div class="content-card">
 						<div class="content-image">
-							<img
-								src="../assets/more5.svg"
-								alt="When Siblings Fight" />
+							<img src="../assets/more5.svg" alt="When Siblings Fight" />
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>When Siblings Fight</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
-                    <div class="content-card">
+					<div class="content-card">
 						<div class="content-image">
 							<img
 								src="../assets/more6.svg"
@@ -373,14 +401,14 @@
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>Screen Time Without the Stress</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
-                    <div class="content-card">
+					<div class="content-card">
 						<div class="content-image">
 							<img
 								src="../assets/more7.svg"
@@ -388,25 +416,23 @@
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>Why Connection Comes Before Correction</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 
-                    <div class="content-card">
+					<div class="content-card">
 						<div class="content-image">
-							<img
-								src="../assets/more8.svg"
-								alt="Self-Care for Busy Parents" />
+							<img src="../assets/more8.svg" alt="Self-Care for Busy Parents" />
 						</div>
 						<p class="content-tags article-tags body-text">Parenting</p>
 						<h5>Self-Care for Busy Parents</h5>
-                        <span class="author">By Derry Riccardo</span>
+						<span class="author">By Derry Riccardo</span>
 						<div class="content-meta">
-                            <span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
-                            <span><i class="fa-regular fa-comment"></i> 2</span>
+							<span><i class="fa-regular fa-clock"></i> April 27, 2025</span>
+							<span><i class="fa-regular fa-comment"></i> 2</span>
 						</div>
 					</div>
 				</div>
@@ -417,69 +443,68 @@
 			</div>
 		</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Logo and Description -->
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="../assets/logo.svg" alt="ParentPal Logo" />
-                    </div>
-                    <p class="body-text-2">
-                        A supportive parenting app that offers expert tips with the aim to
-                        nurture, inspire, and provide support for parents anywhere.
-                    </p>
-                </div>
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="footer-grid">
+					<!-- Logo and Description -->
+					<div class="footer-about">
+						<div class="footer-logo">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</div>
+						<p class="body-text-2">
+							A supportive parenting app that offers expert tips with the aim to
+							nurture, inspire, and provide support for parents anywhere.
+						</p>
+					</div>
 
-                <!-- Information Links -->
-                <div class="footer-info">
-                    <h5>Information</h5>
-                    <ul class="body-text-2">
-                        <li><a href="../index.html#about">About Us</a></li>
-                        <li><a href="content.html">Content</a></li>
-                        <li><a href="community.html">Community</a></li>
-                        <li><a href="chatbot.html">Chatbot</a></li>
-                    </ul>
-                </div>
+					<!-- Information Links -->
+					<div class="footer-info">
+						<h5>Information</h5>
+						<ul class="body-text-2">
+							<li><a href="../index.html#about">About Us</a></li>
+							<li><a href="content.html">Content</a></li>
+							<li><a href="community.html">Community</a></li>
+							<li><a href="chatbot.html">Chatbot</a></li>
+						</ul>
+					</div>
 
-                <!-- Helpful Links -->
-                <div class="footer-links">
-                    <h5>Helpful Links</h5>
-                    <ul class="body-text-2">
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
+					<!-- Helpful Links -->
+					<div class="footer-links">
+						<h5>Helpful Links</h5>
+						<ul class="body-text-2">
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Terms & Condition</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
 
-                <!-- Contact Info -->
-                <div class="footer-contact">
-                    <h5>Contact Us</h5>
-                    <ul class="body-text-2">
-                        <li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
-                        <li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
-                    </ul>
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<h5>Contact Us</h5>
+						<ul class="body-text-2">
+							<li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
+							<li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
+						</ul>
 
-                    <!-- Social Media moved here -->
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
+						<!-- Social Media moved here -->
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-tiktok"></i></a>
+						</div>
+					</div>
+				</div>
 
-            <!-- Copyright -->
-            <div class="footer-bottom">
-                <p>Copyright © 2025 ParentPal. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
+				<!-- Copyright -->
+				<div class="footer-bottom">
+					<p>Copyright © 2025 ParentPal. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+		<script src="../js/auth-check.js"></script>
 		<script src="../layout/layout.js"></script>
 		<script src="../js/content.js"></script>
-		<script src="../js/loggedinstate.js"></script>
 	</body>
 </html>

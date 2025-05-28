@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ParentPal - Expert Dashboard</title>
+		<link rel="stylesheet" href="../layout/layout.css" />
+		<link rel="stylesheet" href="../css/dashboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<!-- Header/Navigation -->
+		<header>
+			<div class="container">
+				<nav class="navbar">
+					<div class="logo">
+						<a href="../index.html">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</a>
+					</div>
+
+					<ul class="nav-links">
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="content.html">Content</a></li>
+						<li><a href="community.html">Community</a></li>
+						<li><a href="analytics.html">Analytics</a></li>
+					</ul>
+
+					<div class="profile-icon" id="profile-icon">
+						<div class="profile-image expert">
+							<i class="fas fa-user-md"></i>
+						</div>
+						<i class="fas fa-chevron-down"></i>
+
+						<div class="profile-dropdown">
+							<div class="dropdown-header">
+								<div class="user-name" id="user-name">Dr. Sarah Johnson</div>
+								<div class="user-email" id="user-email">
+									expert@parentpal.com
+								</div>
+								<div class="expert-badge">
+									<i class="fas fa-star"></i>
+									Certified Expert
+								</div>
+							</div>
+							<div class="dropdown-content">
+								<a href="#" class="dropdown-item" onclick="goToDashboard()">
+									<i class="fas fa-th-large"></i>
+									Dashboard
+								</a>
+								<a href="profile.html" class="dropdown-item">
+									<i class="fas fa-user"></i>
+									View Profile
+								</a>
+								<a href="#" class="dropdown-item">
+									<i class="fas fa-cog"></i>
+									Settings
+								</a>
+								<button class="dropdown-item logout-btn" onclick="logout()">
+									<i class="fas fa-sign-out-alt"></i>
+									Logout
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="mobile-menu">
+						<i class="fas fa-bars"></i>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Dashboard Content -->
+		<main class="dashboard-main">
+			<div class="container">
+				<div class="dashboard-header">
+					<div class="expert-badge-large">
+						<i class="fas fa-star"></i>
+						Certified Expert
+					</div>
+					<h1>Expert Dashboard</h1>
+					<p>
+						Manage your consultations, create content, and help parents on their
+						journey.
+					</p>
+				</div>
+
+				<div class="stats-grid">
+					<div class="stat-card">
+						<div class="stat-number">24</div>
+						<div class="stat-label">Active Consultations</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">156</div>
+						<div class="stat-label">Questions Answered</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">4.9</div>
+						<div class="stat-label">Average Rating</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">89</div>
+						<div class="stat-label">Articles Published</div>
+					</div>
+				</div>
+
+				<div class="dashboard-grid">
+					<div class="dashboard-card">
+						<div class="card-icon expert">
+							<i class="fas fa-comments"></i>
+						</div>
+						<h3>Answer Questions</h3>
+						<p>
+							Respond to parent questions and provide expert guidance on
+							parenting challenges.
+						</p>
+						<button class="card-button expert">View Questions</button>
+					</div>
+
+					<div class="dashboard-card">
+						<div class="card-icon expert">
+							<i class="fas fa-edit"></i>
+						</div>
+						<h3>Create Content</h3>
+						<p>
+							Write articles, create guides, and share your expertise with the
+							ParentPal community.
+						</p>
+						<button class="card-button expert">Create Article</button>
+					</div>
+
+					<div class="dashboard-card">
+						<div class="card-icon expert">
+							<i class="fas fa-calendar-alt"></i>
+						</div>
+						<h3>Consultations</h3>
+						<p>
+							Manage your one-on-one consultations and schedule new appointments
+							with parents.
+						</p>
+						<button class="card-button expert">Manage Schedule</button>
+					</div>
+
+					<div class="dashboard-card">
+						<div class="card-icon expert">
+							<i class="fas fa-chart-bar"></i>
+						</div>
+						<h3>Analytics</h3>
+						<p>
+							Track your performance, view engagement metrics, and analyze your
+							impact.
+						</p>
+						<button class="card-button expert">View Analytics</button>
+					</div>
+
+					<div class="dashboard-card">
+						<div class="card-icon expert">
+							<i class="fas fa-users-cog"></i>
+						</div>
+						<h3>Community Management</h3>
+						<p>
+							Moderate discussions, engage with the community, and foster
+							positive interactions.
+						</p>
+						<button class="card-button expert">Manage Community</button>
+					</div>
+
+					<div class="dashboard-card">
+						<div class="card-icon expert">
+							<i class="fas fa-book-open"></i>
+						</div>
+						<h3>Resource Library</h3>
+						<p>
+							Manage and organize educational resources, tools, and materials
+							for parents.
+						</p>
+						<button class="card-button expert">Manage Resources</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script src="../layout/layout.js"></script>
+		<script>
+			// Check if user is logged in and is an expert
+			document.addEventListener("DOMContentLoaded", function () {
+				const isLoggedIn = localStorage.getItem("isLoggedIn");
+				const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+				if (isLoggedIn !== "true" || !currentUser) {
+					window.location.href = "login.html";
+					return;
+				}
+
+				// If user is not expert, redirect to user dashboard
+				if (currentUser.role !== "expert") {
+					window.location.href = "user-dashboard.html";
+					return;
+				}
+
+				// Update profile info
+				const userName = document.getElementById("user-name");
+				const userEmail = document.getElementById("user-email");
+
+				if (userName)
+					userName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+				if (userEmail) userEmail.textContent = currentUser.email;
+			});
+
+			function logout() {
+				localStorage.removeItem("isLoggedIn");
+				localStorage.removeItem("currentUser");
+				window.location.href = "../index.html";
+			}
+
+			function goToDashboard() {
+				// Already on dashboard, just close dropdown
+				document.getElementById("profile-icon").classList.remove("active");
+			}
+		</script>
+	</body>
+</html>
