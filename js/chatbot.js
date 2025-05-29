@@ -53,19 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const message = userInput.value.trim();
         
         if (message !== '') {
-            // Add user message to chat
             addMessage(message, true);
             
-            // Clear input field
             userInput.value = '';
             
-            // Simulate bot thinking with a delay
             setTimeout(() => {
-                // Get random response from sample responses
                 const randomIndex = Math.floor(Math.random() * botResponses.length);
                 const botReply = botResponses[randomIndex];
                 
-                // Add bot response to chat
                 addMessage(botReply);
             }, 1000);
         }

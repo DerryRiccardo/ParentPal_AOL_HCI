@@ -72,13 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (categoryButtons.length > 0) {
         categoryButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active class from all buttons
                 categoryButtons.forEach(btn => btn.classList.remove('active'));
                 
-                // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Filter communities based on category
                 const category = this.textContent.trim().toLowerCase();
                 filterCommunities(category);
             });

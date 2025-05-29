@@ -56,14 +56,25 @@ function checkAuthStatus() {
 	}
 }
 
+// Helper function to get correct path based on current location
+function getCorrectPath(targetPage) {
+	const currentPath = window.location.pathname;
+
+	if (currentPath.includes("/html/")) {
+		return targetPage;
+	}
+
+	return "html/" + targetPage;
+}
+
 function goToDashboard() {
 	const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 	if (currentUser) {
 		if (currentUser.role === "expert") {
-			window.location.href = "./html/expert-dashboard.html";
+			window.location.href = getCorrectPath("expert-dashboard.html");
 		} else {
-			window.location.href = "./html/user-dashboard.html";
+			window.location.href = getCorrectPath("user-dashboard.html");
 		}
 	}
 }
@@ -72,6 +83,10 @@ function logout() {
 	localStorage.removeItem("isLoggedIn");
 	localStorage.removeItem("currentUser");
 
-	// Redirect to home page
-	window.location.href = "../index.html";
+	const currentPath = window.location.pathname;
+	if (currentPath.includes("/html/")) {
+		window.location.href = "../index.html";
+	} else {
+		window.location.href = "index.html";
+	}
 }

@@ -72,12 +72,10 @@ function filterContent(category) {
     
     // Placeholder for demonstration
     if (category === 'all articles') {
-        // Show all content
         document.getElementById('articles').style.display = 'block';
         document.getElementById('videos').style.display = 'block';
         document.querySelector('.more-content').style.display = 'block';
     } else if (category === 'videos') {
-        // Show only videos
         document.getElementById('articles').style.display = 'none';
         document.getElementById('videos').style.display = 'block';
         document.querySelector('.more-content').style.display = 'none';

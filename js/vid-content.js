@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (likeBtn) {
 		likeBtn.addEventListener("click", function () {
 			toggleActive(likeBtn);
-			// Update like count if needed
 			const likeCount = likeBtn.nextElementSibling;
 			if (likeBtn.classList.contains("active")) {
 				likeCount.textContent = parseInt(likeCount.textContent) + 1;
@@ -44,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (dislikeBtn) {
 		dislikeBtn.addEventListener("click", function () {
 			toggleActive(dislikeBtn);
-			// Update dislike count if needed
 			const dislikeCount = dislikeBtn.nextElementSibling;
 			if (dislikeBtn.classList.contains("active")) {
 				dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
@@ -116,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			commentForm.classList.add("active");
 		});
 
-		// Cancel comment
 		if (cancelBtn) {
 			cancelBtn.addEventListener("click", function () {
 				commentTextarea.value = "";
@@ -124,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 
-		// Submit comment
 		if (commentSubmitBtn) {
 			commentSubmitBtn.addEventListener("click", function () {
 				const commentText = commentTextarea.value.trim();
@@ -149,13 +145,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (sortBtns) {
 		sortBtns.forEach((btn) => {
 			btn.addEventListener("click", function () {
-				// Remove active class from all buttons
 				sortBtns.forEach((b) => b.classList.remove("active"));
-				// Add active class to clicked button
+
 				this.classList.add("active");
 
-				// Sort functionality would go here
-				// For demonstration, we'll just show a console message
 				console.log(`Sorting by: ${this.textContent}`);
 			});
 		});
@@ -205,7 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
 					".comment-author-name"
 				).textContent;
 
-				// Focus on comment textarea and prepopulate with @username
 				commentTextarea.focus();
 				commentTextarea.value = `@${authorName} `;
 			});
@@ -216,12 +208,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	const loadMoreBtn = document.querySelector(".load-more-btn");
 	if (loadMoreBtn) {
 		loadMoreBtn.addEventListener("click", function () {
-			// For demonstration, we'll show a loading state
 			this.textContent = "Loading...";
 
-			// Simulate loading delay
 			setTimeout(() => {
-				// In a real app, you would fetch more content from API
 				this.textContent = "Load more content";
 				alert("In a real application, more content would be loaded here.");
 			}, 1000);

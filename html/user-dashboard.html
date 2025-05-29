@@ -1,199 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>ParentPal - User Dashboard</title>
-		<link rel="stylesheet" href="../layout/layout.css" />
-		<link rel="stylesheet" href="../css/dashboard.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-			rel="stylesheet" />
-	</head>
-	<body>
-		<!-- Header/Navigation -->
-		<header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParentPal - User Dashboard</title>
+    <link rel="stylesheet" href="../layout/layout.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/logo.svg" alt="ParentPal Logo" />
+                    </a>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="content.html">Content</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="chatbot.html">Chatbot</a></li>
+                </ul>
+
+                <div class="profile-icon" id="profile-icon">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                    
+                    <div class="profile-dropdown">
+                        <div class="dropdown-header">
+                            <div class="user-name" id="user-name">John Doe</div>
+                            <div class="user-email" id="user-email">john@example.com</div>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item" onclick="goToDashboard()">
+                                <i class="fas fa-th-large"></i>
+                                Dashboard
+                            </a>
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                View Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <button class="dropdown-item logout-btn" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Welcome Header -->
+            <div class="dashboard-header">
+                <div class="welcome-section">
+                    <h1>Welcome back, <span id="welcome-name">John</span>!</h1>
+                    <p>Here's what's happening with your parenting journey today</p>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Upcoming Sessions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Saved Articles</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Weekly Progress</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-layout">
+                <!-- Left Column -->
+                <div class="dashboard-left">
+                    <!-- Today's Schedule -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-calendar-day"></i> Today's Schedule</h3>
+                            <button class="widget-action" onclick="viewFullSchedule()">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <div class="widget-content">
+                            <div class="schedule-list" id="today-schedule">
+                                <div class="schedule-item">
+                                    <div class="schedule-time">10:00 AM</div>
+                                    <div class="schedule-details">
+                                        <div class="schedule-title">Consultation with Dr. Sarah</div>
+                                        <div class="schedule-type">Video Call</div>
+                                    </div>
+                                    <div class="schedule-status upcoming">Upcoming</div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">2:30 PM</div>
+                                    <div class="schedule-details">
+                                        <div class="schedule-title">Parenting Workshop</div>
+                                        <div class="schedule-type">Online Event</div>
+                                    </div>
+                                    <div class="schedule-status upcoming">Upcoming</div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">7:00 PM</div>
+                                    <div class="schedule-details">
+                                        <div class="schedule-title">Reading Time Reminder</div>
+                                        <div class="schedule-type">Personal</div>
+                                    </div>
+                                    <div class="schedule-status reminder">Reminder</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activity Summary -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-chart-line"></i> Activity Summary</h3>
+                            <select class="time-filter">
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                            </select>
+                        </div>
+                        <div class="widget-content">
+                            <div class="activity-stats">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <div class="activity-number">8</div>
+                                        <div class="activity-label">Questions Asked</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <div class="activity-number">15</div>
+                                        <div class="activity-label">Articles Read</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <div class="activity-number">6</div>
+                                        <div class="activity-label">Community Posts</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <div class="activity-number">4.5h</div>
+                                        <div class="activity-label">Learning Time</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dashboard-right">
+                    <!-- Quick Actions -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="quick-actions-grid">
+                                <button class="quick-action-btn" onclick="askQuestion()">
+                                    <i class="fas fa-question-circle"></i>
+                                    Ask Expert
+                                </button>
+                                <button class="quick-action-btn" onclick="startChat()">
+                                    <i class="fas fa-robot"></i>
+                                    AI Chat
+                                </button>
+                                <button class="quick-action-btn" onclick="bookConsultation()">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    Book Session
+                                </button>
+                                <button class="quick-action-btn" onclick="browseContent()">
+                                    <i class="fas fa-search"></i>
+                                    Browse Tips
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saved Content -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-bookmark"></i> Saved Content</h3>
+                            <button class="widget-action" onclick="viewAllSaved()">View All</button>
+                        </div>
+                        <div class="widget-content">
+                            <div class="saved-content-list">
+                                <div class="saved-item">
+                                    <div class="saved-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="saved-details">
+                                        <div class="saved-title">Sleep Training for Toddlers</div>
+                                        <div class="saved-meta">Article • 5 min read</div>
+                                    </div>
+                                    <button class="saved-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                                <div class="saved-item">
+                                    <div class="saved-icon">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div class="saved-details">
+                                        <div class="saved-title">Positive Discipline Techniques</div>
+                                        <div class="saved-meta">Video • 12 min</div>
+                                    </div>
+                                    <button class="saved-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                                <div class="saved-item">
+                                    <div class="saved-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="saved-details">
+                                        <div class="saved-title">Healthy Meal Ideas for Kids</div>
+                                        <div class="saved-meta">Tips • Expert advice</div>
+                                    </div>
+                                    <button class="saved-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Notifications -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-bell"></i> Recent Updates</h3>
+                            <button class="widget-action" onclick="markAllRead()">Mark All Read</button>
+                        </div>
+                        <div class="widget-content">
+                            <div class="notifications-list">
+                                <div class="notification-item unread">
+                                    <div class="notification-icon expert">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-text">Dr. Sarah answered your question about sleep schedules</div>
+                                        <div class="notification-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon community">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-text">New discussion in "Toddler Behavior" group</div>
+                                        <div class="notification-time">5 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon content">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-text">New article: "Building Confidence in Children"</div>
+                                        <div class="notification-time">1 day ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section - Progress Tracking -->
+            <!-- <div class="progress-section">
+                <div class="widget-card full-width">
+                    <div class="widget-header">
+                        <h3><i class="fas fa-trophy"></i> Your Parenting Journey</h3>
+                        <div class="progress-actions">
+                            <button class="btn-secondary" onclick="viewDetailedProgress()">View Details</button>
+                            <button class="btn-primary" onclick="updateProgress()">Update Progress</button>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="progress-grid">
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-title">Sleep Routine</span>
+                                    <span class="progress-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="progress-note">Great progress! Keep it up</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-title">Nutrition Goals</span>
+                                    <span class="progress-percentage">72%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 72%"></div>
+                                </div>
+                                <div class="progress-note">Try adding more vegetables</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-title">Learning Activities</span>
+                                    <span class="progress-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                                <div class="progress-note">Excellent engagement!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+		<!-- Footer -->
+		<footer>
 			<div class="container">
-				<nav class="navbar">
-					<div class="logo">
-						<a href="../index.html">
+				<div class="footer-grid">
+					<!-- Logo and Description -->
+					<div class="footer-about">
+						<div class="footer-logo">
 							<img src="../assets/logo.svg" alt="ParentPal Logo" />
-						</a>
-					</div>
-
-					<ul class="nav-links">
-						<li><a href="../index.html">Home</a></li>
-						<li><a href="content.html">Content</a></li>
-						<li><a href="community.html">Community</a></li>
-						<li><a href="chatbot.html">Chatbot</a></li>
-					</ul>
-
-					<div class="profile-icon" id="profile-icon">
-						<div class="profile-image">
-							<i class="fas fa-user"></i>
 						</div>
-						<i class="fas fa-chevron-down"></i>
+						<p class="body-text-2">
+							A supportive parenting app that offers expert tips with the aim to
+							nurture, inspire, and provide support for parents anywhere.
+						</p>
+					</div>
 
-						<div class="profile-dropdown">
-							<div class="dropdown-header">
-								<div class="user-name" id="user-name">John Doe</div>
-								<div class="user-email" id="user-email">john@example.com</div>
-							</div>
-							<div class="dropdown-content">
-								<a href="#" class="dropdown-item" onclick="goToDashboard()">
-									<i class="fas fa-th-large"></i>
-									Dashboard
-								</a>
-								<a href="profile.html" class="dropdown-item">
-									<i class="fas fa-user"></i>
-									View Profile
-								</a>
-								<a href="#" class="dropdown-item">
-									<i class="fas fa-cog"></i>
-									Settings
-								</a>
-								<button class="dropdown-item logout-btn" onclick="logout()">
-									<i class="fas fa-sign-out-alt"></i>
-									Logout
-								</button>
-							</div>
+					<!-- Information Links -->
+					<div class="footer-info">
+						<h5>Information</h5>
+						<ul class="body-text-2">
+							<li><a href="../index.html#about">About Us</a></li>
+							<li><a href="content.html">Content</a></li>
+							<li><a href="community.html">Community</a></li>
+							<li><a href="chatbot.html">Chatbot</a></li>
+						</ul>
+					</div>
+
+					<!-- Helpful Links -->
+					<div class="footer-links">
+						<h5>Helpful Links</h5>
+						<ul class="body-text-2">
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Terms & Condition</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<h5>Contact Us</h5>
+						<ul class="body-text-2">
+							<li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
+							<li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
+						</ul>
+
+						<!-- Social Media moved here -->
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-tiktok"></i></a>
 						</div>
 					</div>
-
-					<div class="mobile-menu">
-						<i class="fas fa-bars"></i>
-					</div>
-				</nav>
-			</div>
-		</header>
-
-		<!-- Dashboard Content -->
-		<main class="dashboard-main">
-			<div class="container">
-				<div class="dashboard-header">
-					<h1>Welcome to Your Parent Dashboard</h1>
-					<p>
-						Access parenting resources, track your journey, and connect with the
-						community.
-					</p>
 				</div>
 
-				<div class="dashboard-grid">
-					<div class="dashboard-card">
-						<div class="card-icon">
-							<i class="fas fa-lightbulb"></i>
-						</div>
-						<h3>Parenting Tips</h3>
-						<p>
-							Get personalized parenting advice and tips based on your child's
-							age and development stage.
-						</p>
-						<button class="card-button">Explore Tips</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon">
-							<i class="fas fa-user-md"></i>
-						</div>
-						<h3>Ask Experts</h3>
-						<p>
-							Connect with certified parenting experts and get answers to your
-							specific questions.
-						</p>
-						<button class="card-button">Ask Question</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon">
-							<i class="fas fa-chart-line"></i>
-						</div>
-						<h3>Development Tracker</h3>
-						<p>
-							Track your child's milestones and development progress with our
-							interactive tools.
-						</p>
-						<button class="card-button">Track Progress</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon">
-							<i class="fas fa-users"></i>
-						</div>
-						<h3>Community</h3>
-						<p>
-							Join discussions with other parents, share experiences, and build
-							connections.
-						</p>
-						<button class="card-button">Join Community</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon">
-							<i class="fas fa-robot"></i>
-						</div>
-						<h3>AI Chatbot</h3>
-						<p>
-							Get instant answers to your parenting questions with our
-							AI-powered chatbot assistant.
-						</p>
-						<button class="card-button">Start Chat</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon">
-							<i class="fas fa-book"></i>
-						</div>
-						<h3>Parenting Journal</h3>
-						<p>
-							Keep track of your parenting journey with our digital journal and
-							reflection tools.
-						</p>
-						<button class="card-button">Start Writing</button>
-					</div>
+				<!-- Copyright -->
+				<div class="footer-bottom">
+					<p>Copyright © 2025 ParentPal. All rights reserved.</p>
 				</div>
 			</div>
-		</main>
+		</footer>
 
-		<script src="../layout/layout.js"></script>
-		<script>
-			// Check if user is logged in and redirect if not
-			document.addEventListener("DOMContentLoaded", function () {
-				const isLoggedIn = localStorage.getItem("isLoggedIn");
-				const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-				if (isLoggedIn !== "true" || !currentUser) {
-					window.location.href = "login.html";
-					return;
-				}
-
-				// If user is expert, redirect to expert dashboard
-				if (currentUser.role === "expert") {
-					window.location.href = "expert-dashboard.html";
-					return;
-				}
-
-				// Update profile info
-				const userName = document.getElementById("user-name");
-				const userEmail = document.getElementById("user-email");
-
-				if (userName)
-					userName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
-				if (userEmail) userEmail.textContent = currentUser.email;
-			});
-
-			function logout() {
-				localStorage.removeItem("isLoggedIn");
-				localStorage.removeItem("currentUser");
-				window.location.href = "../index.html";
-			}
-
-			function goToDashboard() {
-				// Already on dashboard, just close dropdown
-				document.getElementById("profile-icon").classList.remove("active");
-			}
-		</script>
-	</body>
+    <script src="../layout/layout.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/user-dashboard.js"></script>
+</body>
 </html>

@@ -50,11 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (predeclaredAccounts[email]) {
 				const account = predeclaredAccounts[email];
 				if (account.password === password) {
-					// Set login status and user data
 					localStorage.setItem("isLoggedIn", "true");
 					localStorage.setItem("currentUser", JSON.stringify(account));
 
-					// Redirect based on role
 					if (account.role === "expert") {
 						window.location.href = "expert-dashboard.html";
 					} else {
@@ -76,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					localStorage.setItem("isLoggedIn", "true");
 					localStorage.setItem("currentUser", JSON.stringify(user));
 
-					// Redirect based on role
 					if (user.role === "expert") {
 						window.location.href = "expert-dashboard.html";
 					} else {

@@ -1,228 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>ParentPal - Expert Dashboard</title>
-		<link rel="stylesheet" href="../layout/layout.css" />
-		<link rel="stylesheet" href="../css/dashboard.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-			rel="stylesheet" />
-	</head>
-	<body>
-		<!-- Header/Navigation -->
-		<header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParentPal - Expert Dashboard</title>
+    <link rel="stylesheet" href="../layout/layout.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/logo.svg" alt="ParentPal Logo" />
+                    </a>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="content.html">Content</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+
+                <div class="profile-icon" id="profile-icon">
+                    <div class="profile-image expert">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                    
+                    <div class="profile-dropdown">
+                        <div class="dropdown-header">
+                            <div class="user-name" id="user-name">Dr. Sarah Johnson</div>
+                            <div class="user-email" id="user-email">expert@parentpal.com</div>
+                            <div class="expert-badge">
+                                <i class="fas fa-star"></i>
+                                Certified Expert
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item" onclick="goToDashboard()">
+                                <i class="fas fa-th-large"></i>
+                                Dashboard
+                            </a>
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                View Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <button class="dropdown-item logout-btn" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Expert Header -->
+            <div class="dashboard-header expert">
+                <div class="expert-welcome">
+                    <div class="expert-badge-large">
+                        <i class="fas fa-star"></i>
+                        Certified Expert
+                    </div>
+                    <h1>Good morning, <span id="expert-name">Dr. Sarah</span>!</h1>
+                    <p>You have 5 consultations scheduled today and 12 pending questions</p>
+                </div>
+                <div class="expert-stats">
+                    <div class="stat-card expert">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Active Consultations</div>
+                    </div>
+                    <div class="stat-card expert">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">Questions Answered</div>
+                    </div>
+                    <div class="stat-card expert">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-card expert">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">Articles Published</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Layout -->
+            <div class="dashboard-layout expert">
+                <!-- Left Column -->
+                <div class="dashboard-left">
+                    <!-- Today's Schedule -->
+                    <div class="widget-card expert">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-calendar-day"></i> Today's Consultations</h3>
+                            <button class="widget-action" onclick="manageSchedule()">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </div>
+                        <div class="widget-content">
+                            <div class="consultation-list">
+                                <div class="consultation-item">
+                                    <div class="consultation-time">
+                                        <div class="time">9:00 AM</div>
+                                        <div class="duration">45 min</div>
+                                    </div>
+                                    <div class="consultation-details">
+                                        <div class="client-name">Sarah Mitchell</div>
+                                        <div class="consultation-topic">Sleep Training Issues</div>
+                                        <div class="consultation-type">
+                                            <i class="fas fa-video"></i> Video Call
+                                        </div>
+                                    </div>
+                                    <div class="consultation-actions">
+                                        <button class="btn-join">Join</button>
+                                    </div>
+                                </div>
+                                <div class="consultation-item">
+                                    <div class="consultation-time">
+                                        <div class="time">11:30 AM</div>
+                                        <div class="duration">30 min</div>
+                                    </div>
+                                    <div class="consultation-details">
+                                        <div class="client-name">Mark Johnson</div>
+                                        <div class="consultation-topic">Toddler Behavior</div>
+                                        <div class="consultation-type">
+                                            <i class="fas fa-phone"></i> Phone Call
+                                        </div>
+                                    </div>
+                                    <div class="consultation-actions">
+                                        <button class="btn-prepare">Prepare</button>
+                                    </div>
+                                </div>
+                                <div class="consultation-item">
+                                    <div class="consultation-time">
+                                        <div class="time">2:00 PM</div>
+                                        <div class="duration">60 min</div>
+                                    </div>
+                                    <div class="consultation-details">
+                                        <div class="client-name">Lisa Chen</div>
+                                        <div class="consultation-topic">Nutrition Planning</div>
+                                        <div class="consultation-type">
+                                            <i class="fas fa-video"></i> Video Call
+                                        </div>
+                                    </div>
+                                    <div class="consultation-actions">
+                                        <button class="btn-prepare">Prepare</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Today's To-Do List -->
+                    <div class="widget-card expert">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-tasks"></i> Today's Tasks</h3>
+                            <button class="widget-action" onclick="addTask()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="widget-content">
+                            <div class="todo-list">
+                                <div class="todo-item">
+                                    <input type="checkbox" id="task1" class="todo-checkbox">
+                                    <label for="task1" class="todo-label">Review consultation notes for Sarah M.</label>
+                                    <div class="todo-priority high">High</div>
+                                </div>
+                                <div class="todo-item completed">
+                                    <input type="checkbox" id="task2" class="todo-checkbox" checked>
+                                    <label for="task2" class="todo-label">Respond to urgent questions (5 pending)</label>
+                                    <div class="todo-priority medium">Medium</div>
+                                </div>
+                                <div class="todo-item">
+                                    <input type="checkbox" id="task3" class="todo-checkbox">
+                                    <label for="task3" class="todo-label">Finish article on "Positive Discipline"</label>
+                                    <div class="todo-priority medium">Medium</div>
+                                </div>
+                                <div class="todo-item">
+                                    <input type="checkbox" id="task4" class="todo-checkbox">
+                                    <label for="task4" class="todo-label">Update availability for next week</label>
+                                    <div class="todo-priority low">Low</div>
+                                </div>
+                                <div class="todo-item">
+                                    <input type="checkbox" id="task5" class="todo-checkbox">
+                                    <label for="task5" class="todo-label">Review community discussions</label>
+                                    <div class="todo-priority low">Low</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dashboard-right">
+                    <!-- Pending Questions -->
+                    <div class="widget-card expert">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-question-circle"></i> Pending Questions</h3>
+                            <span class="notification-badge">12</span>
+                        </div>
+                        <div class="widget-content">
+                            <div class="questions-list">
+                                <div class="question-item urgent">
+                                    <div class="question-header">
+                                        <div class="question-user">Emma Wilson</div>
+                                        <div class="question-time">2 hours ago</div>
+                                    </div>
+                                    <div class="question-preview">My 3-year-old has been having nightmares every night for the past week...</div>
+                                    <div class="question-tags">
+                                        <span class="tag">Sleep</span>
+                                        <span class="tag urgent">Urgent</span>
+                                    </div>
+                                    <button class="btn-answer">Answer</button>
+                                </div>
+                                <div class="question-item">
+                                    <div class="question-header">
+                                        <div class="question-user">David Park</div>
+                                        <div class="question-time">5 hours ago</div>
+                                    </div>
+                                    <div class="question-preview">What are some effective potty training techniques for a stubborn 2-year-old?</div>
+                                    <div class="question-tags">
+                                        <span class="tag">Development</span>
+                                    </div>
+                                    <button class="btn-answer">Answer</button>
+                                </div>
+                                <div class="question-item">
+                                    <div class="question-header">
+                                        <div class="question-user">Rachel Green</div>
+                                        <div class="question-time">1 day ago</div>
+                                    </div>
+                                    <div class="question-preview">How can I encourage my shy child to participate in group activities?</div>
+                                    <div class="question-tags">
+                                        <span class="tag">Social Skills</span>
+                                    </div>
+                                    <button class="btn-answer">Answer</button>
+                                </div>
+                            </div>
+                            <button class="view-all-btn" onclick="viewAllQuestions()">View All Questions</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Discussions -->
+                    <div class="widget-card expert">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-comments"></i> Recent Discussions</h3>
+                            <button class="widget-action" onclick="viewCommunity()">View All</button>
+                        </div>
+                        <div class="widget-content">
+                            <div class="discussions-list">
+                                <div class="discussion-item">
+                                    <div class="discussion-header">
+                                        <div class="discussion-title">Dealing with Tantrums in Public</div>
+                                        <div class="discussion-replies">23 replies</div>
+                                    </div>
+                                    <div class="discussion-meta">
+                                        <span class="discussion-author">Started by Jennifer L.</span>
+                                        <span class="discussion-time">3 hours ago</span>
+                                    </div>
+                                    <div class="discussion-preview">My 4-year-old has been having meltdowns in stores and I'm not sure how to handle it...</div>
+                                </div>
+                                <div class="discussion-item">
+                                    <div class="discussion-header">
+                                        <div class="discussion-title">Screen Time Guidelines for Toddlers</div>
+                                        <div class="discussion-replies">15 replies</div>
+                                    </div>
+                                    <div class="discussion-meta">
+                                        <span class="discussion-author">Started by Mike R.</span>
+                                        <span class="discussion-time">6 hours ago</span>
+                                    </div>
+                                    <div class="discussion-preview">What are the current recommendations for screen time for 2-3 year olds?</div>
+                                </div>
+                                <div class="discussion-item">
+                                    <div class="discussion-header">
+                                        <div class="discussion-title">Healthy Snack Ideas for Picky Eaters</div>
+                                        <div class="discussion-replies">31 replies</div>
+                                    </div>
+                                    <div class="discussion-meta">
+                                        <span class="discussion-author">Started by Anna K.</span>
+                                        <span class="discussion-time">1 day ago</span>
+                                    </div>
+                                    <div class="discussion-preview">Looking for creative ways to get my picky eater to try new healthy foods...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="widget-card expert">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="expert-actions-grid">
+                                <button class="expert-action-btn" onclick="createArticle()">
+                                    <i class="fas fa-pen"></i>
+                                    Write Article
+                                </button>
+                                <button class="expert-action-btn" onclick="scheduleConsultation()">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    Add Availability
+                                </button>
+                                <button class="expert-action-btn" onclick="viewAnalytics()">
+                                    <i class="fas fa-chart-bar"></i>
+                                    View Analytics
+                                </button>
+                                <button class="expert-action-btn" onclick="manageResources()">
+                                    <i class="fas fa-folder"></i>
+                                    Manage Resources
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+		<!-- Footer -->
+		<footer>
 			<div class="container">
-				<nav class="navbar">
-					<div class="logo">
-						<a href="../index.html">
+				<div class="footer-grid">
+					<!-- Logo and Description -->
+					<div class="footer-about">
+						<div class="footer-logo">
 							<img src="../assets/logo.svg" alt="ParentPal Logo" />
-						</a>
-					</div>
-
-					<ul class="nav-links">
-						<li><a href="../index.html">Home</a></li>
-						<li><a href="content.html">Content</a></li>
-						<li><a href="community.html">Community</a></li>
-						<li><a href="analytics.html">Analytics</a></li>
-					</ul>
-
-					<div class="profile-icon" id="profile-icon">
-						<div class="profile-image expert">
-							<i class="fas fa-user-md"></i>
 						</div>
-						<i class="fas fa-chevron-down"></i>
+						<p class="body-text-2">
+							A supportive parenting app that offers expert tips with the aim to
+							nurture, inspire, and provide support for parents anywhere.
+						</p>
+					</div>
 
-						<div class="profile-dropdown">
-							<div class="dropdown-header">
-								<div class="user-name" id="user-name">Dr. Sarah Johnson</div>
-								<div class="user-email" id="user-email">
-									expert@parentpal.com
-								</div>
-								<div class="expert-badge">
-									<i class="fas fa-star"></i>
-									Certified Expert
-								</div>
-							</div>
-							<div class="dropdown-content">
-								<a href="#" class="dropdown-item" onclick="goToDashboard()">
-									<i class="fas fa-th-large"></i>
-									Dashboard
-								</a>
-								<a href="profile.html" class="dropdown-item">
-									<i class="fas fa-user"></i>
-									View Profile
-								</a>
-								<a href="#" class="dropdown-item">
-									<i class="fas fa-cog"></i>
-									Settings
-								</a>
-								<button class="dropdown-item logout-btn" onclick="logout()">
-									<i class="fas fa-sign-out-alt"></i>
-									Logout
-								</button>
-							</div>
+					<!-- Information Links -->
+					<div class="footer-info">
+						<h5>Information</h5>
+						<ul class="body-text-2">
+							<li><a href="../index.html#about">About Us</a></li>
+							<li><a href="content.html">Content</a></li>
+							<li><a href="community.html">Community</a></li>
+							<li><a href="chatbot.html">Chatbot</a></li>
+						</ul>
+					</div>
+
+					<!-- Helpful Links -->
+					<div class="footer-links">
+						<h5>Helpful Links</h5>
+						<ul class="body-text-2">
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Terms & Condition</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<h5>Contact Us</h5>
+						<ul class="body-text-2">
+							<li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
+							<li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
+						</ul>
+
+						<!-- Social Media moved here -->
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-tiktok"></i></a>
 						</div>
-					</div>
-
-					<div class="mobile-menu">
-						<i class="fas fa-bars"></i>
-					</div>
-				</nav>
-			</div>
-		</header>
-
-		<!-- Dashboard Content -->
-		<main class="dashboard-main">
-			<div class="container">
-				<div class="dashboard-header">
-					<div class="expert-badge-large">
-						<i class="fas fa-star"></i>
-						Certified Expert
-					</div>
-					<h1>Expert Dashboard</h1>
-					<p>
-						Manage your consultations, create content, and help parents on their
-						journey.
-					</p>
-				</div>
-
-				<div class="stats-grid">
-					<div class="stat-card">
-						<div class="stat-number">24</div>
-						<div class="stat-label">Active Consultations</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-number">156</div>
-						<div class="stat-label">Questions Answered</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-number">4.9</div>
-						<div class="stat-label">Average Rating</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-number">89</div>
-						<div class="stat-label">Articles Published</div>
 					</div>
 				</div>
 
-				<div class="dashboard-grid">
-					<div class="dashboard-card">
-						<div class="card-icon expert">
-							<i class="fas fa-comments"></i>
-						</div>
-						<h3>Answer Questions</h3>
-						<p>
-							Respond to parent questions and provide expert guidance on
-							parenting challenges.
-						</p>
-						<button class="card-button expert">View Questions</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon expert">
-							<i class="fas fa-edit"></i>
-						</div>
-						<h3>Create Content</h3>
-						<p>
-							Write articles, create guides, and share your expertise with the
-							ParentPal community.
-						</p>
-						<button class="card-button expert">Create Article</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon expert">
-							<i class="fas fa-calendar-alt"></i>
-						</div>
-						<h3>Consultations</h3>
-						<p>
-							Manage your one-on-one consultations and schedule new appointments
-							with parents.
-						</p>
-						<button class="card-button expert">Manage Schedule</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon expert">
-							<i class="fas fa-chart-bar"></i>
-						</div>
-						<h3>Analytics</h3>
-						<p>
-							Track your performance, view engagement metrics, and analyze your
-							impact.
-						</p>
-						<button class="card-button expert">View Analytics</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon expert">
-							<i class="fas fa-users-cog"></i>
-						</div>
-						<h3>Community Management</h3>
-						<p>
-							Moderate discussions, engage with the community, and foster
-							positive interactions.
-						</p>
-						<button class="card-button expert">Manage Community</button>
-					</div>
-
-					<div class="dashboard-card">
-						<div class="card-icon expert">
-							<i class="fas fa-book-open"></i>
-						</div>
-						<h3>Resource Library</h3>
-						<p>
-							Manage and organize educational resources, tools, and materials
-							for parents.
-						</p>
-						<button class="card-button expert">Manage Resources</button>
-					</div>
+				<!-- Copyright -->
+				<div class="footer-bottom">
+					<p>Copyright © 2025 ParentPal. All rights reserved.</p>
 				</div>
 			</div>
-		</main>
+		</footer>
 
-		<script src="../layout/layout.js"></script>
-		<script>
-			// Check if user is logged in and is an expert
-			document.addEventListener("DOMContentLoaded", function () {
-				const isLoggedIn = localStorage.getItem("isLoggedIn");
-				const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-				if (isLoggedIn !== "true" || !currentUser) {
-					window.location.href = "login.html";
-					return;
-				}
-
-				// If user is not expert, redirect to user dashboard
-				if (currentUser.role !== "expert") {
-					window.location.href = "user-dashboard.html";
-					return;
-				}
-
-				// Update profile info
-				const userName = document.getElementById("user-name");
-				const userEmail = document.getElementById("user-email");
-
-				if (userName)
-					userName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
-				if (userEmail) userEmail.textContent = currentUser.email;
-			});
-
-			function logout() {
-				localStorage.removeItem("isLoggedIn");
-				localStorage.removeItem("currentUser");
-				window.location.href = "../index.html";
-			}
-
-			function goToDashboard() {
-				// Already on dashboard, just close dropdown
-				document.getElementById("profile-icon").classList.remove("active");
-			}
-		</script>
-	</body>
+    <script src="../layout/layout.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/expert-dashboard.js"></script>
+</body>
 </html>

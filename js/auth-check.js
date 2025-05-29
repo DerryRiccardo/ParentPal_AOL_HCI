@@ -133,12 +133,10 @@ function goToHome() {
 function getRelativePath(targetPath) {
 	const currentPath = window.location.pathname;
 
-	// If in html subdirectory, go up one level
 	if (currentPath.includes("/html/")) {
 		return "../" + targetPath;
 	}
 
-	// If targeting a page in html folder from root
 	if (!targetPath.includes("html/") && !currentPath.includes("/html/")) {
 		if (targetPath === "index.html") {
 			return targetPath;
