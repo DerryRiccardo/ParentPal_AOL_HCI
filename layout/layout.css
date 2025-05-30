@@ -2,6 +2,8 @@
 :root {
 	--primary-color: #ff9999;
 	--primary-light: #ffc8c8;
+	--expert-color: #28a745;
+    --expert-light: #d4edda;
 	--text-color: #333333;
 	--text-light: #666666;
 	--bg-light: #ffffff;
@@ -283,21 +285,21 @@ header {
 }
 
 .expert-badge {
-	display: inline-flex;
-	align-items: center;
-	gap: 6px;
-	background: var(--expert-color);
-	color: white;
-	padding: 6px 12px;
-	border-radius: 20px;
-	font-size: 12px;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--expert-light);
+    color: var(--expert-color);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 4px;
 }
 
 .expert-badge i {
-	font-size: 12px;
+    font-size: 0.8rem;
+    color: var(--expert-color);
 }
 
 .dropdown-content {
