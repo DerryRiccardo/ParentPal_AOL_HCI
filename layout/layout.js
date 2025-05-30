@@ -49,6 +49,41 @@ function checkAuthStatus() {
 		if (userName)
 			userName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
 		if (userEmail) userEmail.textContent = currentUser.email;
+
+		// Handle expert status
+    if (currentUser.role === "expert") {
+		// Update profile image styling
+		const profileImage = profileIcon?.querySelector(".profile-image")
+		if (profileImage) profileImage.classList.add("expert")
+
+		// Change icon to medical icon for experts
+		const profileIcons = document.querySelectorAll(".profile-image i")
+		profileIcons.forEach((icon) => {
+			icon.className = "fas fa-user-md"
+		})
+
+		// Show expert badge
+		const expertBadges = document.querySelectorAll(".expert-badge")
+		expertBadges.forEach((badge) => {
+			badge.style.display = "inline-flex"
+		})
+    } else {
+		// Remove expert styling for regular users
+		const profileImage = profileIcon?.querySelector(".profile-image")
+		if (profileImage) profileImage.classList.remove("expert")
+
+		// Regular user icon
+		const profileIcons = document.querySelectorAll(".profile-image i")
+		profileIcons.forEach((icon) => {
+			icon.className = "fas fa-user"
+		})
+
+		// Hide expert badge
+		const expertBadges = document.querySelectorAll(".expert-badge")
+		expertBadges.forEach((badge) => {
+			badge.style.display = "none"
+		})
+    }
 	} else {
 		// User is not logged in
 		if (desktopLogin) desktopLogin.style.display = "block";

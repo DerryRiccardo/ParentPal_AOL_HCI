@@ -58,11 +58,6 @@ main {
 	color: var(--primary-dark);
 }
 
-.dropdown {
-	position: relative;
-	justify-content: space-between;
-}
-
 .dropdown i:last-child {
 	margin-right: 0;
 	margin-left: auto;
@@ -426,14 +421,7 @@ main {
 .sidebar.active {
 	display: block;
 }
-/* Mobile Dropdown Menus */
-.dropdown-content {
-	display: none;
-	padding-left: 30px;
-}
-.dropdown-content.active {
-	display: block;
-}
+
 /* Mobile Menu Button Styles */
 .mobile-sidebar-toggle {
 	display: none;
