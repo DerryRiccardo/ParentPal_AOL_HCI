@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ParentPal - Expert Content Management</title>
+		<link rel="stylesheet" href="../css/content.css" />
+		<link rel="stylesheet" href="../layout/layout.css" />
+		<link rel="stylesheet" href="../css/modal.css" />
+		<link rel="stylesheet" href="../css/expert-content.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<!-- Header/Navigation -->
+		<header>
+			<div class="container">
+				<nav class="navbar">
+					<div class="logo">
+						<a href="../index.html">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</a>
+					</div>
+
+					<ul class="nav-links">
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="expert-content.html">Content</a></li>
+						<li><a href="community.html">Community</a></li>
+						<li><a href="chatbot.html">Chatbot</a></li>
+					</ul>
+
+					<!-- Profile dropdown for authenticated experts -->
+					<div class="profile-icon" id="profile-icon">
+						<div class="profile-image expert">
+							<i class="fas fa-user-md"></i>
+						</div>
+						<i class="fas fa-chevron-down"></i>
+
+						<div class="profile-dropdown">
+							<div class="dropdown-header">
+								<div class="user-name" id="user-name">Dr. Sarah Johnson</div>
+								<div class="user-email" id="user-email">
+									expert@parentpal.com
+								</div>
+								<div class="expert-badge">
+									<i class="fas fa-star"></i>
+									Certified Expert
+								</div>
+							</div>
+							<div class="dropdown-content">
+								<a href="#" class="dropdown-item" onclick="goToDashboard()">
+									<i class="fas fa-th-large"></i>
+									Dashboard
+								</a>
+								<a href="profile.html" class="dropdown-item">
+									<i class="fas fa-user"></i>
+									View Profile
+								</a>
+								<a href="#" class="dropdown-item">
+									<i class="fas fa-cog"></i>
+									Settings
+								</a>
+								<button class="dropdown-item logout-btn" onclick="logout()">
+									<i class="fas fa-sign-out-alt"></i>
+									Logout
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="mobile-menu">
+						<i class="fas fa-bars"></i>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Main Content Section -->
+		<section class="content-header">
+			<div class="container content-header-row">
+				<h2>Manage Your Content</h2>
+				<div class="search-container">
+					<input type="text" placeholder="Search your content" />
+					<button class="search-btn"><i class="fas fa-search"></i></button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Action Buttons -->
+		<section class="expert-actions">
+			<div class="container">
+				<div class="action-buttons">
+					<button class="create-btn">
+						<i class="fas fa-plus"></i> Create New Content
+					</button>
+					<button class="draft-btn">
+						<i class="fas fa-file"></i> View Drafts
+					</button>
+					<button class="schedule-btn">
+						<i class="fas fa-calendar"></i> Scheduled Content
+					</button>
+					<button class="analytics-btn">
+						<i class="fas fa-chart-bar"></i> Content Analytics
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Categories Filter -->
+		<section class="categories">
+			<div class="container">
+				<div class="categories-scroll">
+					<button class="category-btn active">All Content</button>
+					<button class="category-btn">Articles</button>
+					<button class="category-btn">Videos</button>
+					<button class="category-btn">Parenting</button>
+					<button class="category-btn">Child Psychology</button>
+					<button class="category-btn">Health Info & Illness</button>
+					<button class="category-btn">Special Needs</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Published Articles Section -->
+		<section class="featured-content" id="articles">
+			<div class="container">
+				<div class="section-header">
+					<h3>Published Articles</h3>
+					<div class="section-actions">
+						<select class="sort-select">
+							<option value="recent">Most Recent</option>
+							<option value="popular">Most Popular</option>
+							<option value="comments">Most Comments</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="article-list">
+					<div class="article-card">
+						<img
+							src="../assets/article1.svg"
+							alt="Family Talking"
+							class="article-image" />
+						<div class="article-content">
+							<div class="article-status published">
+								<i class="fas fa-check-circle"></i> Published
+							</div>
+							<p class="article-tags body-text">Parenting</p>
+							<h3 class="article-title">From Tantrums to Talking</h3>
+							<div class="article-meta body-text-2">
+								<span
+									><i class="fa-regular fa-clock"></i> Published: April 27,
+									2025</span
+								>
+								<span><i class="fa-regular fa-eye"></i> 1,245 views</span>
+								<span><i class="fa-regular fa-comment"></i> 24 comments</span>
+							</div>
+							<div class="article-description">
+								<p class="body-text article-text">
+									Explore ways to understand your child's emotional outbursts,
+									support their developing communication skills, and teach them
+									how to express their feelings in healthy, age-appropriate
+									ways.
+								</p>
+								<div class="article-actions">
+									<button class="edit-btn">
+										<i class="fas fa-edit"></i> Edit
+									</button>
+									<button class="stats-btn">
+										<i class="fas fa-chart-line"></i> Stats
+									</button>
+									<button class="more-btn">
+										<i class="fas fa-ellipsis-v"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="article-card">
+						<img
+							src="../assets/article2.svg"
+							alt="Family at Beach"
+							class="article-image" />
+						<div class="article-content">
+							<div class="article-status published">
+								<i class="fas fa-check-circle"></i> Published
+							</div>
+							<p class="article-tags body-text">Parenting</p>
+							<h3 class="article-title">Discipline Without Drama</h3>
+							<div class="article-meta">
+								<span
+									><i class="fa-regular fa-clock"></i> Published: April 15,
+									2025</span
+								>
+								<span><i class="fa-regular fa-eye"></i> 987 views</span>
+								<span><i class="fa-regular fa-comment"></i> 18 comments</span>
+							</div>
+							<div class="article-description">
+								<p class="body-text article-text">
+									Learn practical, research-backed techniques to set clear
+									boundaries and guide your child's behavior—without yelling,
+									threats, or power struggles—while maintaining a loving and
+									respectful relationship.
+								</p>
+								<div class="article-actions">
+									<button class="edit-btn">
+										<i class="fas fa-edit"></i> Edit
+									</button>
+									<button class="stats-btn">
+										<i class="fas fa-chart-line"></i> Stats
+									</button>
+									<button class="more-btn">
+										<i class="fas fa-ellipsis-v"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="article-card">
+						<img
+							src="../assets/article3.svg"
+							alt="Parent Playing with Child"
+							class="article-image" />
+						<div class="article-content">
+							<div class="article-status published">
+								<i class="fas fa-check-circle"></i> Published
+							</div>
+							<p class="article-tags body-text">Parenting</p>
+							<h3 class="article-title">The Power of Positive Parenting</h3>
+							<div class="article-meta">
+								<span
+									><i class="fa-regular fa-clock"></i> Published: April 3,
+									2025</span
+								>
+								<span><i class="fa-regular fa-eye"></i> 1,532 views</span>
+								<span><i class="fa-regular fa-comment"></i> 32 comments</span>
+							</div>
+							<div class="article-description">
+								<p class="body-text article-text">
+									Discover how using encouragement, active listening, and
+									empathy can help you build a stronger bond with your child
+									while nurturing their confidence, independence, and emotional
+									well-being.
+								</p>
+								<div class="article-actions">
+									<button class="edit-btn">
+										<i class="fas fa-edit"></i> Edit
+									</button>
+									<button class="stats-btn">
+										<i class="fas fa-chart-line"></i> Stats
+									</button>
+									<button class="more-btn">
+										<i class="fas fa-ellipsis-v"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Published Videos Section -->
+		<section class="featured-content content-video" id="videos">
+			<div class="container">
+				<div class="section-header">
+					<h3>Published Videos</h3>
+					<div class="section-actions">
+						<select class="sort-select">
+							<option value="recent">Most Recent</option>
+							<option value="popular">Most Popular</option>
+							<option value="comments">Most Comments</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="video-grid">
+					<div class="video-card">
+						<div class="video-status published">
+							<i class="fas fa-check-circle"></i> Published
+						</div>
+						<img src="../assets/video1.svg" alt="Parenting Strategy" />
+						<div class="video-content">
+							<p class="article-tags body-text">Parenting</p>
+							<h4>The Most Important Parenting Strategy</h4>
+							<div class="article-meta">
+								<span
+									><i class="fa-regular fa-clock"></i> Published: April 27,
+									2025</span
+								>
+								<span><i class="fa-regular fa-eye"></i> 2,345 views</span>
+								<span><i class="fa-regular fa-comment"></i> 42 comments</span>
+							</div>
+							<div class="video-actions">
+								<button class="edit-btn">
+									<i class="fas fa-edit"></i> Edit
+								</button>
+								<button class="stats-btn">
+									<i class="fas fa-chart-line"></i> Stats
+								</button>
+								<button class="more-btn">
+									<i class="fas fa-ellipsis-v"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="video-card">
+						<div class="video-status published">
+							<i class="fas fa-check-circle"></i> Published
+						</div>
+						<img src="../assets/video2.svg" alt="Staying Calm" />
+						<div class="video-content">
+							<p class="article-tags body-text">Parenting</p>
+							<h4 class="article-title">
+								How to Stay Calm When Your Child Isn't
+							</h4>
+							<div class="article-meta">
+								<span
+									><i class="fa-regular fa-clock"></i> Published: April 20,
+									2025</span
+								>
+								<span><i class="fa-regular fa-eye"></i> 1,876 views</span>
+								<span><i class="fa-regular fa-comment"></i> 36 comments</span>
+							</div>
+							<div class="video-actions">
+								<button class="edit-btn">
+									<i class="fas fa-edit"></i> Edit
+								</button>
+								<button class="stats-btn">
+									<i class="fas fa-chart-line"></i> Stats
+								</button>
+								<button class="more-btn">
+									<i class="fas fa-ellipsis-v"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="video-card">
+						<div class="video-status published">
+							<i class="fas fa-check-circle"></i> Published
+						</div>
+						<img src="../assets/video3.svg" alt="Family on Vacation" />
+						<div class="video-content">
+							<p class="article-tags body-text">Parenting</p>
+							<h4 class="article-title">
+								Family Vacations: Making Memories Without Stress
+							</h4>
+							<div class="article-meta">
+								<span
+									><i class="fa-regular fa-clock"></i> Published: April 15,
+									2025</span
+								>
+								<span><i class="fa-regular fa-eye"></i> 1,432 views</span>
+								<span><i class="fa-regular fa-comment"></i> 28 comments</span>
+							</div>
+							<div class="video-actions">
+								<button class="edit-btn">
+									<i class="fas fa-edit"></i> Edit
+								</button>
+								<button class="stats-btn">
+									<i class="fas fa-chart-line"></i> Stats
+								</button>
+								<button class="more-btn">
+									<i class="fas fa-ellipsis-v"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Draft Content Section -->
+		<section class="draft-content">
+			<div class="container">
+				<div class="section-header">
+					<h3>Draft Content</h3>
+					<div class="section-actions">
+						<button class="view-all-drafts">View All Drafts</button>
+					</div>
+				</div>
+
+				<div class="content-grid">
+					<div class="content-card draft">
+						<div class="content-status draft">
+							<i class="fas fa-pencil-alt"></i> Draft
+						</div>
+						<div class="content-image">
+							<img src="../assets/more1.svg" alt="Kids handling big emotions" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>Helping Kids Handle Big Emotions</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-clock"></i> Last edited: April 27,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="publish-btn">
+								<i class="fas fa-upload"></i> Publish
+							</button>
+						</div>
+					</div>
+
+					<div class="content-card draft">
+						<div class="content-status draft">
+							<i class="fas fa-pencil-alt"></i> Draft
+						</div>
+						<div class="content-image">
+							<img
+								src="../assets/more2.svg"
+								alt="Screen Time Without the Stress" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>Screen Time Without the Stress</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-clock"></i> Last edited: April 25,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="publish-btn">
+								<i class="fas fa-upload"></i> Publish
+							</button>
+						</div>
+					</div>
+
+					<div class="content-card draft">
+						<div class="content-status draft">
+							<i class="fas fa-pencil-alt"></i> Draft
+						</div>
+						<div class="content-image">
+							<img
+								src="../assets/more3.svg"
+								alt="How to Be a Calm Parent (Even on Hard Days)" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>How to Be a Calm Parent (Even on Hard Days)</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-clock"></i> Last edited: April 23,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="publish-btn">
+								<i class="fas fa-upload"></i> Publish
+							</button>
+						</div>
+					</div>
+
+					<div class="content-card draft">
+						<div class="content-status draft">
+							<i class="fas fa-pencil-alt"></i> Draft
+						</div>
+						<div class="content-image">
+							<img
+								src="../assets/more4.svg"
+								alt="The Power of Play in Parenting" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>The Power of Play in Parenting</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-clock"></i> Last edited: April 20,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="publish-btn">
+								<i class="fas fa-upload"></i> Publish
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Scheduled Content Section -->
+		<section class="scheduled-content">
+			<div class="container">
+				<div class="section-header">
+					<h3>Scheduled Content</h3>
+					<div class="section-actions">
+						<button class="view-all-scheduled">View All Scheduled</button>
+					</div>
+				</div>
+
+				<div class="content-grid">
+					<div class="content-card scheduled">
+						<div class="content-status scheduled">
+							<i class="fas fa-clock"></i> Scheduled
+						</div>
+						<div class="content-image">
+							<img src="../assets/more5.svg" alt="When Siblings Fight" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>When Siblings Fight: Effective Mediation Strategies</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-calendar"></i> Scheduled: May 5,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="schedule-edit-btn">
+								<i class="fas fa-calendar-alt"></i> Reschedule
+							</button>
+						</div>
+					</div>
+
+					<div class="content-card scheduled">
+						<div class="content-status scheduled">
+							<i class="fas fa-clock"></i> Scheduled
+						</div>
+						<div class="content-image">
+							<img
+								src="../assets/more6.svg"
+								alt="Screen Time Without the Stress" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>Digital Literacy for Children: A Parent's Guide</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-calendar"></i> Scheduled: May 8,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="schedule-edit-btn">
+								<i class="fas fa-calendar-alt"></i> Reschedule
+							</button>
+						</div>
+					</div>
+
+					<div class="content-card scheduled">
+						<div class="content-status scheduled">
+							<i class="fas fa-clock"></i> Scheduled
+						</div>
+						<div class="content-image">
+							<img
+								src="../assets/more7.svg"
+								alt="Why Connection Comes Before Correction" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>Why Connection Comes Before Correction</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-calendar"></i> Scheduled: May 12,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="schedule-edit-btn">
+								<i class="fas fa-calendar-alt"></i> Reschedule
+							</button>
+						</div>
+					</div>
+
+					<div class="content-card scheduled">
+						<div class="content-status scheduled">
+							<i class="fas fa-clock"></i> Scheduled
+						</div>
+						<div class="content-image">
+							<img src="../assets/more8.svg" alt="Self-Care for Busy Parents" />
+						</div>
+						<p class="content-tags article-tags body-text">Parenting</p>
+						<h5>Self-Care for Busy Parents: Finding Balance</h5>
+						<div class="content-meta">
+							<span
+								><i class="fa-regular fa-calendar"></i> Scheduled: May 15,
+								2025</span
+							>
+						</div>
+						<div class="content-actions">
+							<button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+							<button class="schedule-edit-btn">
+								<i class="fas fa-calendar-alt"></i> Reschedule
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Content Performance Summary -->
+		<section class="performance-summary">
+			<div class="container">
+				<div class="section-header">
+					<h3>Content Performance Summary</h3>
+					<div class="section-actions">
+						<button class="view-analytics">View Detailed Analytics</button>
+					</div>
+				</div>
+
+				<div class="performance-grid">
+					<div class="performance-card">
+						<div class="performance-icon">
+							<i class="fas fa-eye"></i>
+						</div>
+						<div class="performance-data">
+							<h4>12,456</h4>
+							<p>Total Views This Month</p>
+						</div>
+						<div class="performance-trend up">
+							<i class="fas fa-arrow-up"></i> 15% from last month
+						</div>
+					</div>
+
+					<div class="performance-card">
+						<div class="performance-icon">
+							<i class="fas fa-comment"></i>
+						</div>
+						<div class="performance-data">
+							<h4>342</h4>
+							<p>Total Comments</p>
+						</div>
+						<div class="performance-trend up">
+							<i class="fas fa-arrow-up"></i> 8% from last month
+						</div>
+					</div>
+
+					<div class="performance-card">
+						<div class="performance-icon">
+							<i class="fas fa-share-alt"></i>
+						</div>
+						<div class="performance-data">
+							<h4>876</h4>
+							<p>Total Shares</p>
+						</div>
+						<div class="performance-trend up">
+							<i class="fas fa-arrow-up"></i> 12% from last month
+						</div>
+					</div>
+
+					<div class="performance-card">
+						<div class="performance-icon">
+							<i class="fas fa-bookmark"></i>
+						</div>
+						<div class="performance-data">
+							<h4>523</h4>
+							<p>Total Bookmarks</p>
+						</div>
+						<div class="performance-trend up">
+							<i class="fas fa-arrow-up"></i> 5% from last month
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="footer-grid">
+					<!-- Logo and Description -->
+					<div class="footer-about">
+						<div class="footer-logo">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</div>
+						<p class="body-text-2">
+							A supportive parenting app that offers expert tips with the aim to
+							nurture, inspire, and provide support for parents anywhere.
+						</p>
+					</div>
+
+					<!-- Information Links -->
+					<div class="footer-info">
+						<h5>Information</h5>
+						<ul class="body-text-2">
+							<li><a href="../index.html#about">About Us</a></li>
+							<li><a href="content.html">Content</a></li>
+							<li><a href="community.html">Community</a></li>
+							<li><a href="chatbot.html">Chatbot</a></li>
+						</ul>
+					</div>
+
+					<!-- Helpful Links -->
+					<div class="footer-links">
+						<h5>Helpful Links</h5>
+						<ul class="body-text-2">
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Terms & Condition</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<h5>Contact Us</h5>
+						<ul class="body-text-2">
+							<li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
+							<li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
+						</ul>
+
+						<!-- Social Media moved here -->
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-tiktok"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Copyright -->
+				<div class="footer-bottom">
+					<p>Copyright © 2025 ParentPal. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+		<script src="../js/auth-check.js"></script>
+		<script src="../layout/layout.js"></script>
+		<script src="../js/expert-content.js"></script>
+	</body>
+</html>

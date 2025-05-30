@@ -666,7 +666,7 @@
 .tag {
 	padding: 0.25rem 0.5rem;
 	background: var(--primary-light);
-	color: var(--primary-color);
+	color: var(--text-color);
 	border-radius: 12px;
 	font-size: 0.7rem;
 	font-weight: 600;
