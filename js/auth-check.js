@@ -95,7 +95,7 @@ function showAuthModal() {
 	const loginBtn = document.getElementById("modal-login-btn");
 	loginBtn.addEventListener("click", (e) => {
 		e.preventDefault();
-		window.location.href = getRelativePath("../html/login.html");
+		window.location.href = getRelativePath("./html/login.html");
 	});
 
 	// Home button functionality
@@ -126,7 +126,7 @@ function showAuthModal() {
 
 // Helper function to go to home page
 function goToHome() {
-	window.location.href = getRelativePath("index.html");
+	window.location.href = getRelativePath("./index.html");
 }
 
 // Helper function to get relative path based on current location
