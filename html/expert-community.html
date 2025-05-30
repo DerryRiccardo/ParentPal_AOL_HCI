@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="dropdown-content">
-                            <a href="#" class="dropdown-item" onclick="goToDashboard()">
+                            <a href="expert-dashboard.html" class="dropdown-item">
                                 <i class="fas fa-th-large"></i>
                                 Dashboard
                             </a>
@@ -159,7 +159,7 @@
                 
                 <div class="categories">
                     <button class="category-btn active">All</button>
-                    <button class="category-btn">Pending Questions</button>
+                    <button class="category-btn">Today's Schedule</button>
                     <button class="category-btn">My Communities</button>
                     <button class="category-btn">Consultations</button>
                     <button class="category-btn">Content</button>
@@ -167,82 +167,67 @@
             </section>
 
             <section class="recommendations-section">
-                <h3>Questions Awaiting Your Expertise</h3>
-                <div class="community-grid">
-                    <!-- Question Card 1 -->
-                    <div class="community-card expert-question urgent">
-                        <div class="question-header">
-                            <div class="user-info">
-                                <div class="user-avatar">S</div>
-                                <div>
-                                    <div class="user-name">Sari Wijaya</div>
-                                    <div class="question-time">2 jam yang lalu</div>
-                                </div>
-                            </div>
-                            <div class="priority-badge urgent">Urgent</div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Anak 3 tahun sering mimpi buruk setiap malam</h5>
-                            <p class="description">Putri saya sudah seminggu ini terbangun menangis karena mimpi buruk. Dia takut untuk tidur dan ini mempengaruhi seluruh keluarga...</p>
-                            <div class="question-tags">
-                                <span class="tag">Sleep</span>
-                                <span class="tag">Toddler</span>
-                            </div>
-                            <div class="expert-actions">
-                                <button class="answer-btn primary">Answer Question</button>
-                                <button class="consult-btn">Offer Consultation</button>
-                            </div>
-                        </div>
+                <!-- Dashboard-style Consultations Widget -->
+                <div class="consultations-widget">
+                    <div class="consultations-header">
+                        <h3><i class="fas fa-calendar-day"></i> Today's Consultations</h3>
+                        <button class="settings-btn" onclick="manageSchedule()">
+                            <i class="fas fa-cog"></i>
+                        </button>
                     </div>
-
-                    <!-- Question Card 2 -->
-                    <div class="community-card expert-question">
-                        <div class="question-header">
-                            <div class="user-info">
-                                <div class="user-avatar">B</div>
-                                <div>
-                                    <div class="user-name">Budi Santoso</div>
-                                    <div class="question-time">5 jam yang lalu</div>
+                    
+                    <div class="consultations-list">
+                        <!-- Consultation 1 -->
+                        <div class="consultation-item">
+                            <div class="consultation-time">
+                                <div class="time">9:00 AM</div>
+                                <div class="duration">45 min</div>
+                            </div>
+                            <div class="consultation-details">
+                                <div class="client-name">Sarah Mitchell</div>
+                                <div class="consultation-topic">Sleep Training Issues</div>
+                                <div class="consultation-type">
+                                    <i class="fas fa-video"></i> Video Call
                                 </div>
                             </div>
-                            <div class="priority-badge medium">Medium</div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Teknik toilet training untuk anak 2 tahun yang keras kepala</h5>
-                            <p class="description">Kami sudah berbulan-bulan mencoba toilet training untuk anak kami tapi dia menolak menggunakan toilet. Ada teknik efektif untuk balita yang keras kepala?</p>
-                            <div class="question-tags">
-                                <span class="tag">Development</span>
-                                <span class="tag">Toilet Training</span>
-                            </div>
-                            <div class="expert-actions">
-                                <button class="answer-btn">Answer Question</button>
-                                <button class="consult-btn">Offer Consultation</button>
+                            <div class="consultation-actions">
+                                <button class="btn-join" onclick="joinConsultation('sarah-mitchell')">Join</button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Question Card 3 -->
-                    <div class="community-card expert-question">
-                        <div class="question-header">
-                            <div class="user-info">
-                                <div class="user-avatar">A</div>
-                                <div>
-                                    <div class="user-name">Andi Pratama</div>
-                                    <div class="question-time">1 hari yang lalu</div>
+                        <!-- Consultation 2 -->
+                        <div class="consultation-item">
+                            <div class="consultation-time">
+                                <div class="time">11:30 AM</div>
+                                <div class="duration">30 min</div>
+                            </div>
+                            <div class="consultation-details">
+                                <div class="client-name">Mark Johnson</div>
+                                <div class="consultation-topic">Toddler Behavior</div>
+                                <div class="consultation-type">
+                                    <i class="fas fa-phone"></i> Phone Call
                                 </div>
                             </div>
-                            <div class="priority-badge low">Low</div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Mendorong anak pemalu dalam kegiatan kelompok</h5>
-                            <p class="description">Anak saya yang berusia 4 tahun sangat pemalu dan tidak mau berpartisipasi dalam kegiatan kelompok di TK. Bagaimana cara membangun kepercayaan dirinya?</p>
-                            <div class="question-tags">
-                                <span class="tag">Social Skills</span>
-                                <span class="tag">Confidence</span>
+                            <div class="consultation-actions">
+                                <button class="btn-prepare" onclick="prepareConsultation('mark-johnson')">Prepare</button>
                             </div>
-                            <div class="expert-actions">
-                                <button class="answer-btn">Answer Question</button>
-                                <button class="consult-btn">Offer Consultation</button>
+                        </div>
+
+                        <!-- Consultation 3 -->
+                        <div class="consultation-item">
+                            <div class="consultation-time">
+                                <div class="time">2:00 PM</div>
+                                <div class="duration">60 min</div>
+                            </div>
+                            <div class="consultation-details">
+                                <div class="client-name">Lisa Chen</div>
+                                <div class="consultation-topic">Nutrition Planning</div>
+                                <div class="consultation-type">
+                                    <i class="fas fa-video"></i> Video Call
+                                </div>
+                            </div>
+                            <div class="consultation-actions">
+                                <button class="btn-prepare" onclick="prepareConsultation('lisa-chen')">Prepare</button>
                             </div>
                         </div>
                     </div>

@@ -26,93 +26,6 @@
   margin-left: auto;
 }
 
-/* Expert question cards */
-.community-card.expert-question {
-  border-left: 3px solid #28a745;
-}
-
-.community-card.expert-question.urgent {
-  border-left-color: #dc3545;
-  background-color: #fff5f5;
-}
-
-.question-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  padding: 15px 15px 0;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #28a745;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.user-name {
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 2px;
-}
-
-.question-time {
-  font-size: 0.8rem;
-  color: var(--text-light);
-}
-
-.priority-badge {
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.priority-badge.urgent {
-  background: #f8d7da;
-  color: #721c24;
-}
-
-.priority-badge.medium {
-  background: #fff3cd;
-  color: #856404;
-}
-
-.priority-badge.low {
-  background: #d1ecf1;
-  color: #0c5460;
-}
-
-.question-tags {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  padding: 4px 8px;
-  background: #d4edda;
-  color: #28a745;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-
 /* Expert action buttons */
 .expert-actions {
   display: flex;
@@ -137,14 +50,6 @@
   background-color: #1e7e34;
 }
 
-.answer-btn.primary {
-  background-color: #dc3545;
-}
-
-.answer-btn.primary:hover {
-  background-color: #c82333;
-}
-
 .consult-btn {
   background-color: var(--primary-color);
   color: white;
@@ -162,18 +67,212 @@
   background-color: var(--primary-dark);
 }
 
-/* Override join button styles for expert communities */
-.community-card .expert-actions .answer-btn,
-.community-card .expert-actions .consult-btn {
-  margin-top: 0;
+/* Dashboard-style Consultations Section - Matching Dashboard Widget */
+.consultations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+
+.consultations-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #28a745;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.consultations-header h3 i {
+  color: #28a745;
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.settings-btn:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Widget Card Style for Consultations */
+.consultations-widget {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  margin-bottom: 30px;
+}
+
+.consultations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Consultation Items - Exact Dashboard Style */
+.consultation-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.consultation-item:last-child {
+  border-bottom: none;
+}
+
+.consultation-item:hover {
+  background-color: #f8f9fa;
+  margin: 0 -16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.consultation-time {
+  min-width: 80px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.consultation-time .time {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #28a745;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.consultation-time .duration {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.2;
+}
+
+.consultation-details {
+  flex: 1;
+}
+
+.consultation-details .client-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.consultation-details .consultation-topic {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.consultation-details .consultation-type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.2;
+}
+
+.consultation-details .consultation-type i {
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.consultation-actions {
+  margin-left: 20px;
+}
+
+/* Dashboard-style Buttons */
+.btn-join {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 70px;
+}
+
+.btn-join:hover {
+  background-color: #218838;
+}
+
+.btn-prepare {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 70px;
+}
+
+.btn-prepare:hover {
+  background-color: #f8f9fa;
+  border-color: #aaa;
+  color: #333;
 }
 
 /* Mobile responsive adjustments */
 @media screen and (max-width: 768px) {
-  .question-header {
+  .consultation-item {
     flex-direction: column;
-    gap: 10px;
     align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .consultation-item:hover {
+    margin: 0;
+    padding: 16px 0;
+  }
+
+  .consultation-time {
+    min-width: auto;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .consultation-actions {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .btn-join,
+  .btn-prepare {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .consultations-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .expert-actions {
@@ -184,5 +283,9 @@
   .answer-btn,
   .consult-btn {
     width: 100%;
+  }
+
+  .consultations-widget {
+    padding: 16px;
   }
 }

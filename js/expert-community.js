@@ -165,6 +165,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
+// Dashboard-style Consultation Functions
+function joinConsultation(clientId) {
+  console.log(`Joining consultation with ${clientId}`)
+  showNotification("Joining consultation...", "success")
+  // In a real app, this would open the video call interface
+}
+
+function prepareConsultation(clientId) {
+  console.log(`Preparing consultation with ${clientId}`)
+  showNotification("Opening consultation preparation...", "info")
+  // In a real app, this would open preparation tools/notes
+}
+
+function manageSchedule() {
+  console.log("Opening schedule management")
+  showNotification("Opening schedule management...", "info")
+  // In a real app, this would open the full schedule interface
+}
+
 // Expert-specific functions
 function answerQuestion(button) {
   const questionCard = button.closest(".community-card")
@@ -172,7 +191,7 @@ function answerQuestion(button) {
 
   const answer = prompt(`Provide your expert answer for: "${questionTitle}"`)
   if (answer) {
-    alert("Answer submitted successfully!")
+    showNotification("Answer submitted successfully!", "success")
 
     // Mark question as answered
     button.textContent = "Answered"
@@ -190,7 +209,7 @@ function offerConsultation(button) {
   )
 
   if (consultationType) {
-    alert("Consultation offer sent to parent!")
+    showNotification("Consultation offer sent to parent!", "success")
     button.textContent = "Consultation Offered"
     button.style.backgroundColor = "#6c757d"
   }
@@ -200,20 +219,20 @@ function viewCommunityQuestions(button) {
   const communityCard = button.closest(".community-card")
   const communityName = communityCard.querySelector("h5").textContent
 
-  alert(`Opening questions for ${communityName}...`)
+  showNotification(`Opening questions for ${communityName}...`, "info")
 }
 
 function viewCommunity(button) {
   const communityCard = button.closest(".community-card")
   const communityName = communityCard.querySelector("h5").textContent
 
-  alert(`Opening ${communityName} community...`)
+  showNotification(`Opening ${communityName} community...`, "info")
 }
 
 function addExpertise() {
   const expertise = prompt("Enter your new area of expertise:")
   if (expertise) {
-    alert(`Added "${expertise}" to your expertise areas!`)
+    showNotification(`Added "${expertise}" to your expertise areas!`, "success")
   }
 }
 
@@ -221,35 +240,35 @@ function addExpertise() {
 function filterContent(category) {
   console.log(`Filtering content by category: ${category}`)
 
-  const questionCards = document.querySelectorAll(".community-card.expert-question")
+  const consultationsWidget = document.querySelector(".consultations-widget")
   const communityCards = document.querySelectorAll(".community-card:not(.expert-question)")
 
   if (category === "all") {
     // Show all content
-    questionCards.forEach((card) => (card.style.display = "block"))
+    if (consultationsWidget) consultationsWidget.style.display = "block"
     communityCards.forEach((card) => (card.style.display = "block"))
-  } else if (category === "pending questions") {
-    // Show only questions
-    questionCards.forEach((card) => (card.style.display = "block"))
+  } else if (category === "today's schedule") {
+    // Show only consultations
+    if (consultationsWidget) consultationsWidget.style.display = "block"
     communityCards.forEach((card) => (card.style.display = "none"))
   } else if (category === "my communities") {
     // Show only communities
-    questionCards.forEach((card) => (card.style.display = "none"))
+    if (consultationsWidget) consultationsWidget.style.display = "none"
     communityCards.forEach((card) => (card.style.display = "block"))
   } else {
-    alert(`Filtering by: ${category}`)
+    showNotification(`Filtering by: ${category}`, "info")
   }
 }
 
 // Function to perform search
 function performSearch(query) {
   if (!query.trim()) {
-    alert("Please enter a search term")
+    showNotification("Please enter a search term", "info")
     return
   }
 
   console.log(`Searching for: ${query}`)
-  alert(`Searching for: "${query}"`)
+  showNotification(`Searching for: "${query}"`, "info")
 }
 
 // Function to load more communities
@@ -264,6 +283,7 @@ function loadMoreCommunities() {
 
     setTimeout(() => {
       loadMoreBtn.textContent = "No more communities to load"
+      showNotification("All communities loaded", "info")
     }, 1500)
   }
 }
