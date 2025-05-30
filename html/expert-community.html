@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParentPal - Expert Community</title>
+    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="../css/expert-community.css">
+    <link rel="stylesheet" href="../layout/layout.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/logo.svg" alt="ParentPal Logo" />
+                    </a>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="expert-content.html">Content</a></li>
+                    <li><a href="expert-community.html">Community</a></li>
+                    <li><a href="chatbot.html">Chatbot</a></li>
+                </ul>
+
+                <div class="profile-icon" id="profile-icon">
+                    <div class="profile-image expert">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                    
+                    <div class="profile-dropdown">
+                        <div class="dropdown-header">
+                            <div class="user-name" id="user-name">Dr. Sarah Johnson</div>
+                            <div class="user-email" id="user-email">expert@parentpal.com</div>
+                            <div class="expert-badge">
+                                <i class="fas fa-star"></i>
+                                Certified Expert
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item" onclick="goToDashboard()">
+                                <i class="fas fa-th-large"></i>
+                                Dashboard
+                            </a>
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                View Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <button class="dropdown-item logout-btn" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <div class="nav-link">
+                        <i class="fas fa-compass"></i>
+                        <span>Explore</span>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-link">
+                        <i class="fas fa-rss"></i>
+                        <span>Feeds</span>
+                    </div>
+                </div>
+                 <div class="nav-item">
+                    <div class="nav-link dropdown">
+                        <i class="fas fa-comments"></i>
+                        <span>Expert Services</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                </div>
+                <div class="nav-item indent">
+                    <div class="nav-link">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Pending Questions</span>
+                        <span class="notification-badge">12</span>
+                    </div>
+                </div>
+                <div class="nav-item indent">
+                    <div class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Consultations</span>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>     
+            </nav>
+
+            <div class="sidebar-section">
+                <div class="section-header dropdown">
+                    <h3>My Communities</h3>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="create-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>Create Community</span>
+                </div>
+                <ul class="community-list">
+                    <li>
+                        <div class="community-icon">G</div>
+                        <span>Gentle Parenting</span>
+                    </li>
+                    <li>
+                        <div class="community-icon">R</div>
+                        <span>Review Produk Parenting</span>
+                    </li>
+                    <li>
+                        <div class="community-icon">S</div>
+                        <span>Stimulasi Motorik Anak</span>
+                    </li>
+                    <li>
+                        <div class="community-icon">P</div>
+                        <span>Parenting Sadar Lingkungan</span>
+                    </li>
+                    <li>
+                        <div class="community-icon">K</div>
+                        <span>Kreativitas Anak</span>
+                    </li>
+                    <li>
+                        <div class="community-icon">A</div>
+                        <span>Anak Susah Makan</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-main">
+            <section class="explore-section content-header-row">
+                <h2>Community Hub</h2>
+                <div class="search-container">
+                    <input type="text" placeholder="Search questions or communities">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="categories">
+                    <button class="category-btn active">All</button>
+                    <button class="category-btn">Pending Questions</button>
+                    <button class="category-btn">My Communities</button>
+                    <button class="category-btn">Consultations</button>
+                    <button class="category-btn">Content</button>
+                </div>
+            </section>
+
+            <section class="recommendations-section">
+                <h3>Questions Awaiting Your Expertise</h3>
+                <div class="community-grid">
+                    <!-- Question Card 1 -->
+                    <div class="community-card expert-question urgent">
+                        <div class="question-header">
+                            <div class="user-info">
+                                <div class="user-avatar">S</div>
+                                <div>
+                                    <div class="user-name">Sari Wijaya</div>
+                                    <div class="question-time">2 jam yang lalu</div>
+                                </div>
+                            </div>
+                            <div class="priority-badge urgent">Urgent</div>
+                        </div>
+                        <div class="card-content">
+                            <h5>Anak 3 tahun sering mimpi buruk setiap malam</h5>
+                            <p class="description">Putri saya sudah seminggu ini terbangun menangis karena mimpi buruk. Dia takut untuk tidur dan ini mempengaruhi seluruh keluarga...</p>
+                            <div class="question-tags">
+                                <span class="tag">Sleep</span>
+                                <span class="tag">Toddler</span>
+                            </div>
+                            <div class="expert-actions">
+                                <button class="answer-btn primary">Answer Question</button>
+                                <button class="consult-btn">Offer Consultation</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question Card 2 -->
+                    <div class="community-card expert-question">
+                        <div class="question-header">
+                            <div class="user-info">
+                                <div class="user-avatar">B</div>
+                                <div>
+                                    <div class="user-name">Budi Santoso</div>
+                                    <div class="question-time">5 jam yang lalu</div>
+                                </div>
+                            </div>
+                            <div class="priority-badge medium">Medium</div>
+                        </div>
+                        <div class="card-content">
+                            <h5>Teknik toilet training untuk anak 2 tahun yang keras kepala</h5>
+                            <p class="description">Kami sudah berbulan-bulan mencoba toilet training untuk anak kami tapi dia menolak menggunakan toilet. Ada teknik efektif untuk balita yang keras kepala?</p>
+                            <div class="question-tags">
+                                <span class="tag">Development</span>
+                                <span class="tag">Toilet Training</span>
+                            </div>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Question</button>
+                                <button class="consult-btn">Offer Consultation</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question Card 3 -->
+                    <div class="community-card expert-question">
+                        <div class="question-header">
+                            <div class="user-info">
+                                <div class="user-avatar">A</div>
+                                <div>
+                                    <div class="user-name">Andi Pratama</div>
+                                    <div class="question-time">1 hari yang lalu</div>
+                                </div>
+                            </div>
+                            <div class="priority-badge low">Low</div>
+                        </div>
+                        <div class="card-content">
+                            <h5>Mendorong anak pemalu dalam kegiatan kelompok</h5>
+                            <p class="description">Anak saya yang berusia 4 tahun sangat pemalu dan tidak mau berpartisipasi dalam kegiatan kelompok di TK. Bagaimana cara membangun kepercayaan dirinya?</p>
+                            <div class="question-tags">
+                                <span class="tag">Social Skills</span>
+                                <span class="tag">Confidence</span>
+                            </div>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Question</button>
+                                <button class="consult-btn">Offer Consultation</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="suggestions-section">
+                <h3>Communities Where You Provide Expertise</h3>
+                <div class="community-grid">
+                    <!-- Community Card 1 -->
+                    <div class="community-card">
+                        <img src="../assets/explore1.svg" alt="Komunitas Sleep Training">
+                        <div class="card-content">
+                            <h5>Dukungan Sleep Training</h5>
+                            <p class="member-count">15K members • 8 questions pending</p>
+                            <p class="description">Bantu orang tua membangun rutina tidur yang sehat untuk anak-anak mereka melalui panduan dan dukungan ahli.</p>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Questions (8)</button>
+                                <button class="consult-btn">View Community</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Card 2 -->
+                    <div class="community-card">
+                        <img src="../assets/explore2.svg" alt="Komunitas Nutrisi">
+                        <div class="card-content">
+                            <h5>Nutrisi & Pemberian Makan Anak</h5>
+                            <p class="member-count">22K members • 12 questions pending</p>
+                            <p class="description">Berikan panduan ahli tentang kebiasaan makan sehat, perencanaan nutrisi, dan tantangan pemberian makan untuk anak-anak.</p>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Questions (12)</button>
+                                <button class="consult-btn">View Community</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Card 3 -->
+                    <div class="community-card">
+                        <img src="../assets/explore3.svg" alt="Komunitas Perilaku">
+                        <div class="card-content">
+                            <h5>Disiplin Positif & Perilaku</h5>
+                            <p class="member-count">18K members • 5 questions pending</p>
+                            <p class="description">Bagikan strategi untuk mengelola perilaku yang menantang dan mempromosikan teknik disiplin positif.</p>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Questions (5)</button>
+                                <button class="consult-btn">View Community</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Card 4 -->
+                    <div class="community-card">
+                        <img src="../assets/more-explore1.svg" alt="Komunitas Kebutuhan Khusus">
+                        <div class="card-content">
+                            <h5>Dukungan Kebutuhan Khusus</h5>
+                            <p class="member-count">12K members • 3 questions pending</p>
+                            <p class="description">Berikan panduan khusus untuk orang tua anak dengan autism, ADHD, dan kebutuhan perkembangan lainnya.</p>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Questions (3)</button>
+                                <button class="consult-btn">View Community</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Card 5 -->
+                    <div class="community-card">
+                        <img src="../assets/more-explore2.svg" alt="Perkembangan Anak">
+                        <div class="card-content">
+                            <h5>Perkembangan Anak Usia Dini</h5>
+                            <p class="member-count">25K members • 7 questions pending</p>
+                            <p class="description">Dukung orang tua dengan pelacakan milestone, aktivitas perkembangan, dan strategi pembelajaran dini.</p>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Questions (7)</button>
+                                <button class="consult-btn">View Community</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Card 6 -->
+                    <div class="community-card">
+                        <img src="../assets/more-explore3.svg" alt="Kesehatan Mental">
+                        <div class="card-content">
+                            <h5>Kesehatan Mental & Kesejahteraan Anak</h5>
+                            <p class="member-count">16K members • 9 questions pending</p>
+                            <p class="description">Berikan panduan ahli tentang kesejahteraan emosional anak, kecemasan, dan dukungan kesehatan mental.</p>
+                            <div class="expert-actions">
+                                <button class="answer-btn">Answer Questions (9)</button>
+                                <button class="consult-btn">View Community</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="load-more-container">
+                    <button class="load-more-btn">Load more communities</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Logo and Description -->
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/logo.svg" alt="ParentPal Logo" />
+                    </div>
+                    <p class="body-text-2">
+                        A supportive parenting app that offers expert tips with the aim to
+                        nurture, inspire, and provide support for parents anywhere.
+                    </p>
+                </div>
+
+                <!-- Information Links -->
+                <div class="footer-info">
+                    <h5>Information</h5>
+                    <ul class="body-text-2">
+                        <li><a href="../index.html#about">About Us</a></li>
+                        <li><a href="content.html">Content</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="chatbot.html">Chatbot</a></li>
+                    </ul>
+                </div>
+
+                <!-- Helpful Links -->
+                <div class="footer-links">
+                    <h5>Helpful Links</h5>
+                    <ul class="body-text-2">
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-contact">
+                    <h5>Contact Us</h5>
+                    <ul class="body-text-2">
+                        <li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
+                        <li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
+                    </ul>
+
+                    <!-- Social Media moved here -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>Copyright © 2025 ParentPal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth-check.js"></script>
+    <script src="../layout/layout.js"></script>
+    <script src="../js/expert-community.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+/* Expert Community Additional Styles */
+
+/* Expert-specific modifications to existing community styles */
+.community-icon.expert {
+  background-color: #28a745;
+  color: white;
+}
+
+.create-btn.expert {
+  background-color: #28a745;
+  color: white;
+}
+
+.create-btn.expert:hover {
+  background-color: #1e7e34;
+}
+
+/* Notification badge for pending questions */
+.notification-badge {
+  background: #dc3545;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Expert question cards */
+.community-card.expert-question {
+  border-left: 3px solid #28a745;
+}
+
+.community-card.expert-question.urgent {
+  border-left-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding: 15px 15px 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #28a745;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 2px;
+}
+
+.question-time {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.priority-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-badge.urgent {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.priority-badge.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.priority-badge.low {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.question-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 4px 8px;
+  background: #d4edda;
+  color: #28a745;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Expert action buttons */
+.expert-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.answer-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+
+.answer-btn:hover {
+  background-color: #1e7e34;
+}
+
+.answer-btn.primary {
+  background-color: #dc3545;
+}
+
+.answer-btn.primary:hover {
+  background-color: #c82333;
+}
+
+.consult-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+
+.consult-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Override join button styles for expert communities */
+.community-card .expert-actions .answer-btn,
+.community-card .expert-actions .consult-btn {
+  margin-top: 0;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+  .question-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .expert-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .answer-btn,
+  .consult-btn {
+    width: 100%;
+  }
+}
