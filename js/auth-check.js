@@ -95,7 +95,7 @@ function showAuthModal() {
 	const loginBtn = document.getElementById("modal-login-btn");
 	loginBtn.addEventListener("click", (e) => {
 		e.preventDefault();
-		window.location.href = getRelativePath("../html/login.html");
+		window.location.href = getRelativePath("./../html/login.html");
 	});
 
 	// Home button functionality
