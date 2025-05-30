@@ -95,7 +95,7 @@ function showAuthModal() {
 	const loginBtn = document.getElementById("modal-login-btn");
 	loginBtn.addEventListener("click", (e) => {
 		e.preventDefault();
-		window.location.href = getRelativePath("html/login.html");
+		window.location.href = getRelativePath("../html/login.html");
 	});
 
 	// Home button functionality
@@ -126,34 +126,24 @@ function showAuthModal() {
 
 // Helper function to go to home page
 function goToHome() {
-	window.location.href = getRelativePath("./index.html");
+	window.location.href = getRelativePath("index.html");
 }
 
 // Helper function to get relative path based on current location
 function getRelativePath(targetPath) {
-    // Remove './' from the beginning of paths if present
-    targetPath = targetPath.replace(/^\.\//, '');
+	const currentPath = window.location.pathname;
 
-    // Check if we're in GitHub Pages environment
-    const isGitHubPages = window.location.hostname.includes('github.io');
-    
-    // Get repository name for GitHub Pages
-    const repoName = isGitHubPages ? window.location.pathname.split('/')[1] : '';
-    
-    // Construct base path
-    const basePath = isGitHubPages ? `/${repoName}` : '';
+	if (currentPath.includes("/html/")) {
+		return "../" + targetPath;
+	}
 
-    if (currentPath.includes("/html/")) {
-        return `${basePath}/${targetPath}`;
-    }
+	if (!targetPath.includes("html/") && !currentPath.includes("/html/")) {
+		if (targetPath === "index.html") {
+			return targetPath;
+		} else {
+			return "html/" + targetPath;
+		}
+	}
 
-    if (!targetPath.includes("html/") && !currentPath.includes("/html/")) {
-        if (targetPath === "index.html") {
-            return `${basePath}/${targetPath}`;
-        } else {
-            return `${basePath}/html/${targetPath}`;
-        }
-    }
-
-    return `${basePath}/${targetPath}`;
+	return targetPath;
 }
