@@ -95,7 +95,7 @@ function showAuthModal() {
 	const loginBtn = document.getElementById("modal-login-btn");
 	loginBtn.addEventListener("click", (e) => {
 		e.preventDefault();
-		window.location.href = getRelativePath("../html/login.html");
+		window.location.href = getRelativePath("html/login.html");
 	});
 
 	// Home button functionality
@@ -131,19 +131,31 @@ function goToHome() {
 
 // Helper function to get relative path based on current location
 function getRelativePath(targetPath) {
-	const currentPath = window.location.pathname;
+    // Remove any leading slashes or ../ from the target path
+    targetPath = targetPath.replace(/^\.\.\/|^\//, '');
+    
+    // Check if we're on GitHub Pages
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    
+    if (isGitHubPages) {
+        // Get the repository name from the pathname
+        const repoName = window.location.pathname.split('/')[1];
+        return `/${repoName}/${targetPath}`;
+    }
 
-	if (currentPath.includes("/html/")) {
-		return "../" + targetPath;
-	}
+    // For local development
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("/html/")) {
+        return "../" + targetPath;
+    }
 
-	if (!targetPath.includes("html/") && !currentPath.includes("/html/")) {
-		if (targetPath === "index.html") {
-			return targetPath;
-		} else {
-			return "html/" + targetPath;
-		}
-	}
+    if (!targetPath.includes("html/") && !currentPath.includes("/html/")) {
+        if (targetPath === "index.html") {
+            return targetPath;
+        } else {
+            return "html/" + targetPath;
+        }
+    }
 
-	return targetPath;
+    return targetPath;
 }
