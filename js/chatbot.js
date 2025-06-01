@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             messageDiv.innerHTML = `
                 <div class="message-content">
-                    <img src="/assets/pp.svg" alt="Bot" class="avatar">
+                    <img src="../assets/pp.svg" alt="Bot" class="avatar">
                     <div class="bubble">
                         <p>${text}</p>
                     </div>
