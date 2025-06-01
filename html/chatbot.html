@@ -94,7 +94,7 @@
 						<!-- Chat messages will appear here -->
 						<div class="message bot-message">
 							<div class="message-content">
-								<img src="../assets/pp.svg" alt="Bot" class="avatar" />
+								<img src="../assets/pp.svg" alt="Bot" class="avatar" id="bot-avatar" />
 								<div class="bubble">
 									<p>
 										Hello! I'm ParentPal, your parenting assistant. How can I
@@ -216,7 +216,6 @@
 				
 				// Fix all asset images
 				const images = [
-					{ selector: '.logo img', originalPath: '../assets/logo.svg' },
 					{ selector: '.avatar', originalPath: '../assets/pp.svg' }
 				];
 				
@@ -229,6 +228,5 @@
 				});
 			});
 		</script>
-		
 	</body>
 </html>
