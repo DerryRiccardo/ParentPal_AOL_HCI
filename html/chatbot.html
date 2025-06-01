@@ -192,6 +192,43 @@
 
 		<script src="../js/auth-check.js"></script>
 		<script src="../layout/layout.js"></script>
-		<script src="../js/chatbot.js"></script>	
+		<script src="../js/chatbot.js"></script>
+		
+		<!-- Fix chatbot icon for github -->
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				console.log("Fixing asset paths for GitHub Pages...");
+				
+				function getCorrectAssetPath(relativePath) {
+					// Check if we're on GitHub Pages
+					const isGitHubPages = window.location.hostname.includes('github.io');
+					
+					if (isGitHubPages) {
+						// Get repository name from URL
+						const repoName = window.location.pathname.split('/')[1];
+						// Convert ../assets/file.svg to /repoName/assets/file.svg
+						return `/${repoName}/assets/${relativePath.split('/').pop()}`;
+					}
+					
+					// Keep original path for local development
+					return relativePath;
+				}
+				
+				// Fix all asset images
+				const images = [
+					{ selector: '.logo img', originalPath: '../assets/logo.svg' },
+					{ selector: '.avatar', originalPath: '../assets/pp.svg' }
+				];
+				
+				images.forEach(({ selector, originalPath }) => {
+					const img = document.querySelector(selector);
+					if (img) {
+						img.src = getCorrectAssetPath(originalPath);
+						console.log(`Fixed ${selector}: ${img.src}`);
+					}
+				});
+			});
+		</script>
+		
 	</body>
 </html>
