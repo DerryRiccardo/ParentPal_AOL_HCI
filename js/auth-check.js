@@ -95,7 +95,7 @@ function showAuthModal() {
 	const loginBtn = document.getElementById("modal-login-btn");
 	loginBtn.addEventListener("click", (e) => {
 		e.preventDefault();
-		window.location.href = getRelativePath("html/login.html");
+		window.location.href = getRelativePath("login.html");
 	});
 
 	// Home button functionality
@@ -131,31 +131,57 @@ function goToHome() {
 
 // Helper function to get relative path based on current location
 function getRelativePath(targetPath) {
-    // Remove any leading slashes or ../ from the target path
-    targetPath = targetPath.replace(/^\.\.\/|^\//, '');
+    console.log("Getting relative path for:", targetPath);
+    console.log("Current pathname:", window.location.pathname);
+    console.log("Current hostname:", window.location.hostname);
     
     // Check if we're on GitHub Pages
     const isGitHubPages = window.location.hostname.includes('github.io');
     
     if (isGitHubPages) {
         // Get the repository name from the pathname
-        const repoName = window.location.pathname.split('/')[1];
-        // Build the correct GitHub Pages path
-        return `/${repoName}/${targetPath}`;
+        const pathParts = window.location.pathname.split('/').filter(part => part);
+        const repoName = pathParts[0]; // First part should be repo name
+        
+        console.log("GitHub Pages detected, repo name:", repoName);
+        
+        // Handle different target paths for GitHub Pages
+        if (targetPath === "index.html") {
+            return `/${repoName}/`;
+        } else if (targetPath === "login.html") {
+            return `/${repoName}/html/login.html`;
+        } else if (targetPath === "signup.html") {
+            return `/${repoName}/html/signup.html`;
+        } else if (targetPath.startsWith("html/")) {
+            return `/${repoName}/${targetPath}`;
+        } else {
+            // If it's an HTML file not in html folder, put it in html folder
+            if (targetPath.endsWith('.html')) {
+                return `/${repoName}/html/${targetPath}`;
+            }
+            return `/${repoName}/${targetPath}`;
+        }
     }
 
-    // For local development - keep existing logic
+    // For local development
     const currentPath = window.location.pathname;
+    console.log("Local development, current path:", currentPath);
+    
+    // If we're currently in an html folder
     if (currentPath.includes("/html/")) {
+        if (targetPath === "index.html") {
+            return "../index.html";
+        } else if (targetPath.endsWith('.html') && !targetPath.startsWith("html/")) {
+            return targetPath; // Stay in same folder
+        }
         return "../" + targetPath;
     }
-
-    if (!targetPath.includes("html/") && !currentPath.includes("/html/")) {
-        if (targetPath === "index.html") {
-            return targetPath;
-        } else {
-            return "html/" + targetPath;
-        }
+    
+    // If we're in root and targeting an html file
+    if (targetPath === "index.html") {
+        return "index.html";
+    } else if (targetPath.endsWith('.html') && !targetPath.startsWith("html/")) {
+        return "html/" + targetPath;
     }
 
     return targetPath;
