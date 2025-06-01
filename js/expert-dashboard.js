@@ -33,7 +33,6 @@ function loadExpertDashboard(user) {
 	// Load dashboard data
 	loadTodayConsultations();
 	loadTodoList();
-	loadPendingQuestions();
 	loadRecentDiscussions();
 	loadExpertStats();
 }
@@ -60,11 +59,6 @@ function loadTodoList() {
 			saveTodoState();
 		});
 	});
-}
-
-function loadPendingQuestions() {
-	// This would fetch pending questions from backend
-	console.log("Loading pending questions...");
 }
 
 function loadRecentDiscussions() {
@@ -133,10 +127,6 @@ function addTask() {
 		saveTodoState();
 		showNotification("Task added successfully!", "success");
 	}
-}
-
-function viewAllQuestions() {
-	alert("Opening all questions view...");
 }
 
 function viewCommunity() {
