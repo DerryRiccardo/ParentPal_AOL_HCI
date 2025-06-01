@@ -138,12 +138,15 @@ function getRelativePath(targetPath) {
     const isGitHubPages = window.location.hostname.includes('github.io');
     
     if (isGitHubPages) {
-        // Get the repository name from the pathname
-        const repoName = window.location.pathname.split('/')[1];
-        return `/${repoName}/${targetPath}`;
+        // Get the full path segments
+        const pathSegments = window.location.pathname.split('/');
+        // Repository name should be the first segment after the leading slash
+        const repoName = pathSegments[1];
+        // Build the correct GitHub Pages path
+        return `/${repoName}/ParentPal_AOL_HCI/${targetPath}`;
     }
 
-    // For local development
+    // For local development - keep existing logic
     const currentPath = window.location.pathname;
     if (currentPath.includes("/html/")) {
         return "../" + targetPath;
