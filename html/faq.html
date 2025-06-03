@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FAQ & Help Guide - ParentPal</title>
+		<link rel="stylesheet" href="../css/faq.css" />
+		<link rel="stylesheet" href="../layout/layout.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<!-- Header/Navigation -->
+		<header>
+			<div class="container">
+				<nav class="navbar">
+					<div class="logo">
+						<a href="../index.html">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</a>
+					</div>
+
+					<ul class="nav-links">
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="./content.html">Content</a></li>
+						<li><a href="./community.html">Community</a></li>
+						<li><a href="./chatbot.html">Chatbot</a></li>
+					</ul>
+
+					<!-- Login button for non-authenticated users -->
+					<div class="desktop-login" id="desktop-login">
+						<a href="./login.html" class="login-btn">Login</a>
+					</div>
+
+					<!-- Profile dropdown for authenticated users -->
+					<div class="profile-icon" id="profile-icon" style="display: none">
+						<div class="profile-image">
+							<i class="fas fa-user"></i>
+						</div>
+						<i class="fas fa-chevron-down"></i>
+
+						<div class="profile-dropdown">
+							<div class="dropdown-header">
+								<div class="user-name" id="user-name">John Doe</div>
+								<div class="user-email" id="user-email">john@example.com</div>
+							</div>
+							<div class="dropdown-content">
+								<a href="#" class="dropdown-item" onclick="goToDashboard()">
+									<i class="fas fa-th-large"></i>
+									Dashboard
+								</a>
+								<a href="./profile.html" class="dropdown-item">
+									<i class="fas fa-user"></i>
+									View Profile
+								</a>
+                                <a href="faq.html" class="dropdown-item">
+									<i class="fas fa-question-circle"></i>
+									FAQ & Help
+								</a>
+								<a href="#" class="dropdown-item">
+									<i class="fas fa-cog"></i>
+									Settings
+								</a>
+								<button class="dropdown-item logout-btn" onclick="logout()">
+									<i class="fas fa-sign-out-alt"></i>
+									Logout
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="mobile-menu">
+						<i class="fas fa-bars"></i>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Main Content -->
+		<main class="faq-main">
+			<div class="container">
+				<div class="faq-header">
+					<h1>Frequently Asked Questions & Help</h1>
+					<p>Find answers to common questions and learn how to get the most out of ParentPal</p>
+					
+					<div class="faq-search">
+						<input type="text" id="faq-search-input" placeholder="Search for questions or topics...">
+						<button id="faq-search-btn"><i class="fas fa-search"></i></button>
+					</div>
+				</div>
+
+				<div class="quick-links">
+					<h2>Quick Links</h2>
+					<div class="quick-links-grid">
+						<a href="#getting-started" class="quick-link">
+							<i class="fas fa-rocket"></i>
+							<span>Getting Started</span>
+						</a>
+						<a href="#account" class="quick-link">
+							<i class="fas fa-user-circle"></i>
+							<span>Account & Profile</span>
+						</a>
+						<a href="#content-faq" class="quick-link">
+							<i class="fas fa-book-open"></i>
+							<span>Content Library</span>
+						</a>
+						<a href="#community-faq" class="quick-link">
+							<i class="fas fa-users"></i>
+							<span>Community</span>
+						</a>
+						<a href="#chatbot-faq" class="quick-link">
+							<i class="fas fa-robot"></i>
+							<span>Chatbot</span>
+						</a>
+						<a href="#experts-faq" class="quick-link">
+							<i class="fas fa-user-md"></i>
+							<span>Experts</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="faq-sections">
+					<!-- Getting Started Section -->
+					<section id="getting-started" class="faq-section">
+						<h2>Getting Started</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>What is ParentPal?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>ParentPal is a comprehensive parenting support platform that offers expert-curated content, a supportive community, and an AI-powered chatbot to help parents navigate their parenting journey. Our mission is to empower parents with practical tools and heartfelt guidance to raise confident, kind, and resilient children.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I navigate the ParentPal website?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>The main navigation menu at the top of every page includes links to:</p>
+									<ul>
+										<li><strong>Home:</strong> Our landing page with featured content and information</li>
+										<li><strong>Content:</strong> Articles, videos, and resources organized by topic</li>
+										<li><strong>Community:</strong> Forums and discussion boards to connect with other parents</li>
+										<li><strong>Chatbot:</strong> Our AI-powered parenting assistant for instant help</li>
+									</ul>
+									<p>When logged in, you can access your personal dashboard and profile through the profile icon in the top-right corner.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>Do I need to create an account to use ParentPal?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>While some basic content is available to all visitors, creating a free account gives you access to:</p>
+									<ul>
+										<li>Personalized content recommendations</li>
+										<li>Community participation</li>
+										<li>Chatbot conversations</li>
+										<li>Ability to save favorite articles and videos</li>
+										<li>Child profile creation for age-specific guidance</li>
+									</ul>
+									<p>To create an account, click "Login" in the top-right corner, then select "Sign Up" on the login page.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Account & Profile Section -->
+					<section id="account" class="faq-section">
+						<h2>Account & Profile</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I create an account?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>To create a ParentPal account:</p>
+									<ol>
+										<li>Click the "Login" button in the top-right corner of any page</li>
+										<li>Select "Sign Up" on the login page</li>
+										<li>Enter your email address and create a password</li>
+										<li>Complete your profile information</li>
+										<li>Verify your email address through the link sent to your inbox</li>
+									</ol>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I add my child's information?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>Adding your child's information helps us personalize content and recommendations:</p>
+									<ol>
+										<li>Log in to your account</li>
+										<li>Go to your Dashboard by clicking your profile icon and selecting "Dashboard"</li>
+										<li>Find the "Add Child" section and click "Add"</li>
+										<li>Enter your child's name, birthdate, and any relevant information</li>
+										<li>Save the profile</li>
+									</ol>
+									<p>You can add multiple children and update their information anytime from your Dashboard.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I update my profile information?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>To update your profile:</p>
+									<ol>
+										<li>Click your profile icon in the top-right corner</li>
+										<li>Select "View Profile"</li>
+										<li>Click the "Edit Profile" button</li>
+										<li>Update your information as needed</li>
+										<li>Click "Save Changes"</li>
+									</ol>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>I forgot my password. How do I reset it?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>To reset your password:</p>
+									<ol>
+										<li>Go to the Login page</li>
+										<li>Click "Forgot Password?"</li>
+										<li>Enter the email address associated with your account</li>
+										<li>Check your email for a password reset link</li>
+										<li>Follow the link to create a new password</li>
+									</ol>
+									<p>If you don't receive the email within a few minutes, check your spam folder.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Content Library Section -->
+					<section id="content-faq" class="faq-section">
+						<h2>Content Library</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How is content organized on ParentPal?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>ParentPal content is organized in several ways to help you find what you need:</p>
+									<ul>
+										<li><strong>By Format:</strong> Articles, videos, and downloadable resources</li>
+										<li><strong>By Topic:</strong> Categories like behavior, development, health, etc.</li>
+										<li><strong>By Age:</strong> Content specific to different developmental stages</li>
+										<li><strong>Featured Content:</strong> Highlighted on the homepage and content section</li>
+										<li><strong>Personalized Recommendations:</strong> Based on your child's age and your interests</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I save content for later?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>To save articles or videos for later:</p>
+									<ol>
+										<li>Log in to your account</li>
+										<li>When viewing content, click the bookmark icon (or "Save" button)</li>
+										<li>The content will be added to your "Saved Items" collection</li>
+										<li>Access your saved content anytime from your Dashboard</li>
+									</ol>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>Who creates the content on ParentPal?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>ParentPal content is created by:</p>
+									<ul>
+										<li><strong>Certified Experts:</strong> Pediatricians, child psychologists, parenting educators, and other professionals with verified credentials</li>
+										<li><strong>Editorial Team:</strong> Our in-house team that ensures all content is evidence-based, practical, and aligned with our values</li>
+										<li><strong>Guest Contributors:</strong> Occasionally, we feature content from guest experts with specialized knowledge</li>
+									</ul>
+									<p>All content undergoes a review process to ensure accuracy and quality before publication.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Community Section -->
+					<section id="community-faq" class="faq-section">
+						<h2>Community</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I join discussions in the community?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>To participate in the ParentPal community:</p>
+									<ol>
+										<li>Log in to your account</li>
+										<li>Navigate to the "Community" section from the main menu</li>
+										<li>Browse discussion topics or use the search function to find specific topics</li>
+										<li>Click on a discussion thread to read existing comments</li>
+										<li>Use the comment box at the bottom to add your thoughts or questions</li>
+										<li>To start a new discussion, click the "New Post" or "Ask a Question" button</li>
+									</ol>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>What are the community guidelines?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>Our community guidelines ensure a supportive, respectful environment:</p>
+									<ul>
+										<li><strong>Be Kind:</strong> Treat others with respect and empathy</li>
+										<li><strong>No Judgment:</strong> Parenting approaches vary; avoid criticizing others' choices</li>
+										<li><strong>Privacy:</strong> Respect others' privacy and be mindful of sharing personal information</li>
+										<li><strong>Constructive Feedback:</strong> Offer support and helpful suggestions</li>
+										<li><strong>No Promotion:</strong> Avoid self-promotion or advertising</li>
+										<li><strong>Report Concerns:</strong> Use the "Report" button for inappropriate content</li>
+									</ul>
+									<p>Violations of these guidelines may result in content removal or account restrictions.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I connect with experts in the community?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>To connect with ParentPal experts:</p>
+									<ul>
+										<li><strong>Expert Q&A:</strong> Post questions in the designated "Ask an Expert" section</li>
+										<li><strong>Expert Discussions:</strong> Participate in scheduled expert-led discussions (check the Community Calendar)</li>
+										<li><strong>Expert Profiles:</strong> View expert profiles to see their specialties and content</li>
+										<li><strong>Direct Questions:</strong> Some experts offer direct consultation services (fees may apply)</li>
+									</ul>
+									<p>Experts are identified by a verified badge next to their name in the community.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Chatbot Section -->
+					<section id="chatbot-faq" class="faq-section">
+						<h2>Chatbot</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>What is the ParentPal Chatbot?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>The ParentPal Chatbot is an AI-powered assistant that provides instant parenting guidance and support. It can:</p>
+									<ul>
+										<li>Answer common parenting questions</li>
+										<li>Suggest strategies for handling challenging situations</li>
+										<li>Provide age-appropriate developmental information</li>
+										<li>Direct you to relevant articles and resources</li>
+										<li>Offer quick tips and encouragement</li>
+									</ul>
+									<p>The chatbot is available 24/7 and can be accessed from the "Chatbot" section in the main navigation.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>Is the chatbot advice personalized?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>Yes, the chatbot provides personalized responses based on:</p>
+									<ul>
+										<li>Your child's age and developmental stage (if you've added this information to your profile)</li>
+										<li>Your previous conversations and questions</li>
+										<li>Specific details you provide in your questions</li>
+									</ul>
+									<p>For the most personalized experience, be specific in your questions and make sure your child's information is up-to-date in your profile.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>When should I use the chatbot vs. consulting an expert?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>The chatbot is ideal for:</p>
+									<ul>
+										<li>Quick questions about common parenting challenges</li>
+										<li>General developmental information</li>
+										<li>Immediate support during stressful moments</li>
+										<li>Finding relevant resources on specific topics</li>
+									</ul>
+									<p>Consider consulting an expert for:</p>
+									<ul>
+										<li>Complex or persistent behavioral issues</li>
+										<li>Specific medical or psychological concerns</li>
+										<li>Personalized guidance for unique family situations</li>
+										<li>In-depth support for significant challenges</li>
+									</ul>
+									<p>The chatbot will suggest consulting an expert when appropriate.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Experts Section -->
+					<section id="experts-faq" class="faq-section">
+						<h2>Experts</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>Who are the experts on ParentPal?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>ParentPal experts include:</p>
+									<ul>
+										<li><strong>Pediatricians:</strong> For child health and development questions</li>
+										<li><strong>Child Psychologists:</strong> For behavioral and emotional guidance</li>
+										<li><strong>Parenting Educators:</strong> For practical parenting strategies</li>
+										<li><strong>Family Therapists:</strong> For family dynamics and relationships</li>
+										<li><strong>Child Development Specialists:</strong> For age-specific developmental guidance</li>
+									</ul>
+									<p>All experts are verified professionals with relevant credentials and experience. You can view expert profiles to learn about their background, specialties, and approach.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How are experts verified?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>Our expert verification process includes:</p>
+									<ol>
+										<li>Credential verification (degrees, certifications, licenses)</li>
+										<li>Professional experience review</li>
+										<li>Reference checks</li>
+										<li>Interview with our content team</li>
+										<li>Regular review of content quality and accuracy</li>
+									</ol>
+									<p>Verified experts are identified by a badge on their profile and contributions.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I become an expert on ParentPal?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>If you're a qualified professional interested in becoming a ParentPal expert:</p>
+									<ol>
+										<li>Visit the "Join Our Experts" page (found in the footer)</li>
+										<li>Complete the application form with your credentials and experience</li>
+										<li>Submit samples of your work or writing</li>
+										<li>Participate in an interview if selected</li>
+										<li>Complete our expert onboarding process</li>
+									</ol>
+									<p>We review applications based on credentials, experience, and current needs for specific expertise.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Privacy & Security Section -->
+					<section id="privacy" class="faq-section">
+						<h2>Privacy & Security</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How is my personal information protected?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>ParentPal takes privacy seriously:</p>
+									<ul>
+										<li>We use industry-standard encryption to protect your data</li>
+										<li>Personal information is only used to provide and improve our services</li>
+										<li>We never sell your data to third parties</li>
+										<li>You control what information is visible to other community members</li>
+										<li>Child information is especially protected with additional security measures</li>
+									</ul>
+									<p>For complete details, please review our <a href="#">Privacy Policy</a>.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>Can I delete my account and data?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>Yes, you can delete your account and associated data:</p>
+									<ol>
+										<li>Log in to your account</li>
+										<li>Go to your Profile settings</li>
+										<li>Select "Account" tab</li>
+										<li>Scroll to the bottom and click "Delete Account"</li>
+										<li>Confirm your decision</li>
+									</ol>
+									<p>Please note that some information may be retained for legal purposes, and community contributions will remain but be anonymized.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Technical Support Section -->
+					<section id="technical" class="faq-section">
+						<h2>Technical Support</h2>
+						
+						<div class="accordion">
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>The website isn't working properly. What should I do?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>If you're experiencing technical issues:</p>
+									<ol>
+										<li>Try refreshing the page</li>
+										<li>Clear your browser cache and cookies</li>
+										<li>Try using a different browser</li>
+										<li>Check your internet connection</li>
+										<li>If using a mobile device, ensure you have the latest version of your browser</li>
+									</ol>
+									<p>If problems persist, please contact our support team at <a href="mailto:support@parentpal.com">support@parentpal.com</a> with details about the issue, including your device, browser, and steps to reproduce the problem.</p>
+								</div>
+							</div>
+
+							<div class="accordion-item">
+								<div class="accordion-header">
+									<h3>How do I report a bug or suggest a feature?</h3>
+									<span class="accordion-icon"><i class="fas fa-plus"></i></span>
+								</div>
+								<div class="accordion-content">
+									<p>We welcome your feedback to improve ParentPal:</p>
+									<ul>
+										<li><strong>Report a Bug:</strong> Email <a href="mailto:bugs@parentpal.com">bugs@parentpal.com</a> with details about what happened</li>
+										<li><strong>Suggest a Feature:</strong> Use the "Feedback" button in the footer or email <a href="mailto:suggestions@parentpal.com">suggestions@parentpal.com</a></li>
+									</ul>
+									<p>Please include as much detail as possible to help us understand your experience or idea.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="contact-support">
+					<h2>Still Need Help?</h2>
+					<p>Our support team is here to assist you with any questions not covered in this guide.</p>
+					<div class="support-options">
+						<a href="mailto:support@parentpal.com" class="support-option">
+							<i class="fas fa-envelope"></i>
+							<h4>Email Support</h4>
+							<p>support@parentpal.com</p>
+						</a>
+						<div class="support-option">
+							<i class="fas fa-phone-alt"></i>
+							<h4>Phone Support</h4>
+							<p>+62 8888 8888 8888</p>
+							<p class="support-hours">Mon-Fri, 9am-5pm</p>
+						</div>
+						<div class="support-option">
+							<i class="fas fa-comments"></i>
+							<h4>Live Chat</h4>
+							<p>Available on weekdays</p>
+							<button class="chat-btn">Start Chat</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="footer-grid">
+					<!-- Logo and Description -->
+					<div class="footer-about">
+						<div class="footer-logo">
+							<img src="../assets/logo.svg" alt="ParentPal Logo" />
+						</div>
+						<p class="body-text-2">
+							A supportive parenting app that offers expert tips with the aim to
+							nurture, inspire, and provide support for parents anywhere.
+						</p>
+					</div>
+
+					<!-- Information Links -->
+					<div class="footer-info">
+						<h5>Information</h5>
+						<ul class="body-text-2">
+							<li><a href="../index.html#about">About Us</a></li>
+							<li><a href="./content.html">Content</a></li>
+							<li><a href="./community.html">Community</a></li>
+							<li><a href="./chatbot.html">Chatbot</a></li>
+						</ul>
+					</div>
+
+					<!-- Helpful Links -->
+					<div class="footer-links">
+						<h5>Helpful Links</h5>
+						<ul class="body-text-2">
+							<li><a href="faq.html">FAQ & Help</a></li>
+							<li><a href="#">Terms & Condition</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<h5>Contact Us</h5>
+						<ul class="body-text-2">
+							<li><i class="fas fa-phone"></i> +62 8888 8888 8888</li>
+							<li><i class="fas fa-envelope"></i> parentpal@gmail.com</li>
+						</ul>
+
+						<!-- Social Media moved here -->
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-tiktok"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Copyright -->
+				<div class="footer-bottom">
+					<p>Copyright © 2025 ParentPal. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="../layout/layout.js"></script>
+		<script src="../js/auth-check.js"></script>
+		<script src="../js/faq.js"></script>
+	</body>
+</html>
