@@ -13,8 +13,8 @@
 }
 
 .profile-main {
-	min-height: calc(100vh - 120px);
-	padding: 2rem 0;
+	min-height: calc(100vh - 120px); 
+	padding-top: 4rem;
 	background-color: var(--bg-light);
 }
 
@@ -23,7 +23,7 @@
 	background: white;
 	border-radius: var(--border-radius);
 	padding: 2rem;
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 	box-shadow: var(--shadow);
 	display: flex;
 	align-items: center;
@@ -162,7 +162,7 @@
 .profile-content {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 4rem;
 }
 
 .profile-section {

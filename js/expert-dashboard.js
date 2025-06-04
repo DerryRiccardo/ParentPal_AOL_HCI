@@ -134,11 +134,11 @@ function viewCommunity() {
 }
 
 function createArticle() {
-	alert("Opening article creation form...");
+	window.location.href = "expert-content.html";
 }
 
 function scheduleConsultation() {
-	alert("Opening consultation scheduling...");
+	window.location.href = "expert-community.html";
 }
 
 function viewAnalytics() {

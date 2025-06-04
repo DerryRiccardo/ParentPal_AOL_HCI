@@ -1,15 +1,22 @@
 /* Expert Content Page Styles */
 
 /* Expert Actions Section */
+.content-header {
+	background-color: var(--bg-light);
+	padding-top: 64px;
+	padding-bottom: 0px;
+}
+
 .expert-actions {
-	padding: 20px 0;
+	padding-top: 32px;
+	padding-bottom: 32px;
 }
 
 .action-buttons {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;
-	justify-content: center;
+	justify-content: start;
 }
 
 .create-btn,
@@ -100,7 +107,7 @@
 	position: absolute;
 	top: 10px;
 	right: 10px;
-	padding: 5px 10px;
+	padding: 6px 15px;
 	border-radius: 20px;
 	font-size: 0.8rem;
 	font-weight: 500;
@@ -153,12 +160,12 @@
 
 .edit-btn {
 	background-color: var(--primary-light);
-	color: var(--primary-color);
+	color: var(--text-color);
 }
 
 .stats-btn {
 	background-color: #e2e3e5;
-	color: #383d41;
+	color: var(--text-color);
 }
 
 .more-btn {
@@ -206,12 +213,13 @@
 
 .content-card {
 	position: relative;
+	padding-bottom: 24px;
 }
 
 .content-actions {
 	display: flex;
 	gap: 10px;
-	padding: 0 24px 16px;
+	padding: 0 24px;
 }
 
 /* Scheduled Content Section */
